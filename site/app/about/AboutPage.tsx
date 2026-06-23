@@ -4,8 +4,6 @@ import { useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, useInView, AnimatePresence } from "framer-motion";
-import Lottie from "lottie-react";
-import understandTech from "../../public/understand-tech.json";
 import { AnimateIn, Stagger, StaggerItem } from "@/components/AnimateIn";
 import { useCalendarModal } from "@/components/CalendarModal";
 
@@ -343,7 +341,7 @@ export default function AboutPage() {
                   style={{ boxShadow: "0 0 0 1px rgba(63,107,255,0.25), 0 0 0 5px rgba(63,107,255,0.07), 0 30px 70px rgba(0,0,0,0.45)" }}>
                   <Image
                     src="/bob-headshot-portrait.webp"
-                    alt="Bob Hart — founder of Successfulbob LLC"
+                    alt="Bob Hart, founder of Successfulbob LLC"
                     fill
                     sizes="(max-width: 768px) 280px, 340px"
                     className="object-cover object-top"
@@ -376,7 +374,7 @@ export default function AboutPage() {
                   style={{ background: "rgba(11,23,52,0.85)", border: "1px solid rgba(63,107,255,0.25)", boxShadow: "0 12px 30px rgba(0,0,0,0.35)" }}
                 >
                   <p className="text-[22px] font-bold bg-clip-text text-transparent leading-none"
-                    style={{ backgroundImage: "linear-gradient(90deg, #3f6bff, #8b5cf6)" }}>~20 yrs</p>
+                    style={{ backgroundImage: "linear-gradient(90deg, #3f6bff, #8b5cf6)" }}>20+ years</p>
                   <p className="text-[11px] text-white/50 mt-1">enterprise tech</p>
                 </motion.div>
 
@@ -438,9 +436,9 @@ export default function AboutPage() {
               </Stagger>
             </div>
 
-            {/* -- Animation column -- */}
+            {/* -- Illustration column -- */}
             <AnimateIn delay={0.2} className="flex justify-center">
-              <Lottie animationData={understandTech} loop className="w-full" />
+              <Image src="/translating.png" alt="Translating technical value" width={480} height={400} className="w-full h-auto rounded-2xl" />
             </AnimateIn>
 
           </div>
@@ -569,8 +567,8 @@ export default function AboutPage() {
               <p className="text-[11px] font-semibold tracking-[0.14em] uppercase text-white/35 mb-5">Education</p>
               <div className="space-y-4">
                 {[
-                  { school: "Harvard University", credential: "Master's — Information Management Systems" },
-                  { school: "MIT", credential: "Executive Certificate — Innovation & Strategy" },
+                  { school: "Harvard University", credential: "Master's: Information Management Systems" },
+                  { school: "MIT", credential: "Executive Certificate: Innovation & Strategy" },
                 ].map((edu, i) => (
                   <motion.div
                     key={i}
@@ -758,7 +756,7 @@ export default function AboutPage() {
           <AnimateIn delay={0.4} className="mt-12">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {[
-                { label: "~20 years", sub: "in enterprise tech" },
+                { label: "20+ years", sub: "in enterprise tech" },
                 { label: "7 disciplines", sub: "of GTM experience" },
                 { label: "1 question", sub: "why should they care?" },
               ].map((stat, i) => (

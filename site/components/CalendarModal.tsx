@@ -56,7 +56,7 @@ export function CalendarModalProvider({ children }: { children: React.ReactNode 
               <div className="flex items-center justify-between px-6 py-4 border-b border-[#e5e7eb]">
                 <div>
                   <h2 className="text-[17px] font-bold text-[#111827]">Schedule a 30-Minute Fit Call</h2>
-                  <p className="text-[13px] text-[#526078]">Pick a time — no back and forth.</p>
+                  <p className="text-[13px] text-[#526078]">Pick a time. No back and forth.</p>
                 </div>
                 <button
                   onClick={closeModal}

@@ -114,10 +114,6 @@ const INSIGHTS_FAQS = [
     a: "The newsletter is for technical founders, GTM leaders, product marketers, sales leaders, partner teams, and executives who are trying to make complex products easier to understand, sell, demo, and scale. It is especially useful if the product is strong but the story still depends too much on the founder or a few internal experts.",
   },
   {
-    q: "What is the Customer Resource Vault?",
-    a: "The Customer Resource Vault is a gated area for clients with access to Successfulbob and Production Ready materials. It contains proprietary templates, frameworks, worksheets, checklists, and tools that help customers apply the ideas from the public Insights section to their own GTM, messaging, demos, partner enablement, and executive narrative work.",
-  },
-  {
     q: "Where should I start?",
     a: "Start with the featured article: \"How do you turn technical features into business value?\" It gives a practical way to connect the features your team talks about to the pains, outcomes, roles, and value your buyers actually care about.",
   },
@@ -199,7 +195,8 @@ export default function InsightsPage({
   const { openModal } = useCalendarModal();
 
   const displayFeatured = featured ?? FALLBACK_FEATURED;
-  const displayPosts = posts.length > 0 ? posts : FALLBACK_POSTS;
+  const filteredPosts = posts.filter((p) => p.title !== "Our first post");
+  const displayPosts = filteredPosts.length > 0 ? filteredPosts : FALLBACK_POSTS;
   const displayCategories = categories.length > 0 ? categories : FALLBACK_CATEGORIES;
 
   return (
@@ -365,30 +362,32 @@ export default function InsightsPage({
             </p>
           </AnimateIn>
 
-          <Stagger className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5" stagger={0.07}>
-            {displayCategories.map((c) => (
-              <StaggerItem key={c.title} className="h-full">
-                <motion.div
-                  whileHover={{ y: -3 }}
-                  transition={{ duration: 0.2 }}
-                  className="group h-full flex flex-col rounded-2xl p-6 bg-white border border-[#e5e7eb] transition-shadow duration-200 hover:shadow-[0_12px_30px_rgba(63,107,255,0.10)]"
-                >
-                  <h3 className="text-[18px] font-bold text-[#111827] mb-2.5 group-hover:text-[#3f6bff] transition-colors duration-200">{c.title}</h3>
-                  {c.blurb && <p className="text-[#526078] text-[14px] leading-[1.65] mb-5">{c.blurb}</p>}
-                  {c.topics && c.topics.length > 0 && (
-                    <div className="mt-auto space-y-2">
-                      {c.topics.map((t) => (
-                        <div key={t} className="flex items-start gap-2.5">
-                          <span className="mt-1.5 w-1 h-1 rounded-full flex-shrink-0" style={{ background: "linear-gradient(135deg, #3f6bff, #8b5cf6)" }} />
-                          <span className="text-[13px] text-[#526078]/90 leading-snug">{t}</span>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </motion.div>
-              </StaggerItem>
-            ))}
-          </Stagger>
+          {[displayCategories.slice(0, 2), displayCategories.slice(2, 5), displayCategories.slice(5, 7)].map((row, rowIdx) => (
+            <Stagger key={rowIdx} className={`grid gap-5 mb-5 ${rowIdx === 1 ? "sm:grid-cols-3" : "sm:grid-cols-2"}`} stagger={0.07}>
+              {row.map((c) => (
+                <StaggerItem key={c.title} className="h-full">
+                  <motion.div
+                    whileHover={{ y: -3 }}
+                    transition={{ duration: 0.2 }}
+                    className="group h-full flex flex-col rounded-2xl p-6 bg-white border border-[#e5e7eb] transition-shadow duration-200 hover:shadow-[0_12px_30px_rgba(63,107,255,0.10)]"
+                  >
+                    <h3 className="text-[18px] font-bold text-[#111827] mb-2.5 group-hover:text-[#3f6bff] transition-colors duration-200">{c.title}</h3>
+                    {c.blurb && <p className="text-[#526078] text-[14px] leading-[1.65] mb-5">{c.blurb}</p>}
+                    {c.topics && c.topics.length > 0 && (
+                      <div className="mt-auto space-y-2">
+                        {c.topics.map((t) => (
+                          <div key={t} className="flex items-start gap-2.5">
+                            <span className="mt-1.5 w-1 h-1 rounded-full flex-shrink-0" style={{ background: "linear-gradient(135deg, #3f6bff, #8b5cf6)" }} />
+                            <span className="text-[13px] text-[#526078]/90 leading-snug">{t}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </motion.div>
+                </StaggerItem>
+              ))}
+            </Stagger>
+          ))}
         </div>
       </section>
 

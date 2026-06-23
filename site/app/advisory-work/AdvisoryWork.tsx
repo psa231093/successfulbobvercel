@@ -214,18 +214,6 @@ const TOPICS = [
   "One-off strategy sessions",
 ];
 
-const NOT_INCLUDED = [
-  "Full content creation",
-  "Unlimited deck writing",
-  "Blog or social campaigns",
-  "Full messaging framework buildout",
-  "Full GTM roadmap creation",
-  "LMS or partner certification production",
-  "SDR work",
-  "Sales quota ownership",
-  "Paid ads or demand gen execution",
-];
-
 const PRICING = [
   {
     name: "Monthly Advisory",
@@ -265,7 +253,7 @@ const PRICING = [
 const FIT = [
   "You have a technical product and need help explaining it in a way buyers care about.",
   "You want to pressure-test your messaging before a launch, event, investor conversation, or strategic sales push.",
-  "Your founder, sales, product, marketing, and partner teams aren't telling the same story.",
+  "Your founder, sales, product, marketing, and partner teams are not telling the same story.",
   "You need a technical GTM advisor who understands the product without losing the business context.",
   "You want someone who can ask hard questions without turning every conversation into consultant theater.",
   "You need help thinking through partner strategy, demos, executive narrative, field enablement, or buyer value.",
@@ -478,17 +466,9 @@ export default function AdvisoryWork() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.65, delay: 0.22, ease: [0.22, 1, 0.36, 1] }}
-                className="text-[16px] md:text-[18px] text-white/65 max-w-xl md:max-w-none mx-auto leading-[1.7] mb-5"
+                className="text-[16px] md:text-[18px] text-white/65 max-w-xl md:max-w-none mx-auto leading-[1.7] mb-9"
               >
-                Sometimes you don't need a full Production Ready engagement. You need someone who can look at the product, the market, the buyer, the demo, the partner strategy, or the executive story and help you see where the message is breaking.
-              </motion.p>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.65, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                className="text-[14px] md:text-[15px] text-white/45 max-w-xl md:max-w-none mx-auto leading-[1.7] mb-9"
-              >
-                It's for companies that need senior help thinking through the problem, not a content factory or a full GTM system build.
+                Sometimes you do not need a full Production Ready engagement. You need someone who can look at the product, the market, the buyer, the demo, the partner strategy, or the executive story and help you see where the message is breaking. Advisory is for companies that need senior judgment, pressure-testing, and practical guidance, not a content factory or a full GTM system build.
               </motion.p>
 
               <motion.div
@@ -529,7 +509,7 @@ export default function AdvisoryWork() {
               When you need a sharper outside view, but not the whole Production Ready path.
             </h2>
             <p className="text-[#526078] text-base md:text-[17px] leading-[1.8]">
-              Advisory Work is usually the right fit when the company has specific questions, decisions, or pressure points that would benefit from senior technical GTM judgment. The work is practical: we look at what's happening, where the story or strategy is breaking, and what would make the next step more useful.
+              Advisory Work is usually the right fit when the company has specific questions, decisions, or pressure points that would benefit from senior technical GTM judgment. The work is practical: we look at what is happening, where the story or strategy is breaking, and what would make the next step more useful.
             </p>
           </AnimateIn>
 
@@ -551,7 +531,7 @@ export default function AdvisoryWork() {
                 The topics are flexible. The role is focused.
               </h2>
               <p className="text-[#526078] text-base md:text-[17px] leading-[1.8] mb-8">
-                Advisory Work can support a wide range of technical GTM and company-building conversations. The common thread is not the topic. It is the type of help.
+                Advisory can support a wide range of technical GTM and company-building conversations. The common thread is not the topic. It is the type of help.
               </p>
               <div className="relative pl-6 py-4">
                 <div className="absolute left-0 top-0 w-[3px] h-full rounded-full" style={{ background: "linear-gradient(to bottom, #3f6bff, #8b5cf6)" }} />
@@ -583,109 +563,148 @@ export default function AdvisoryWork() {
         </div>
       </section>
 
-      {/* -- WHAT ADVISORY IS NOT (03) -- dark -- */}
-      <section className="relative py-24 md:py-32 bg-[#061126] text-white overflow-hidden">
-        <div className="absolute top-0 right-0 text-[160px] font-bold leading-none pointer-events-none select-none"
-          style={{ color: "rgba(255,255,255,0.03)", lineHeight: 0.9 }}>03</div>
-        <div className="absolute -right-20 top-1/3 w-[500px] h-[500px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(ellipse at center, rgba(139,92,246,0.10) 0%, transparent 70%)" }} />
-
-        <div className="relative max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-14 md:gap-16 items-center">
-          <AnimateIn>
-            <SectionLabel>What advisory work is not</SectionLabel>
+      {/* -- ADVISORY VS PRODUCTION READY -- */}
+      <section className="relative py-24 md:py-32 bg-white overflow-hidden">
+        <div className="relative max-w-6xl mx-auto px-6">
+          <AnimateIn className="max-w-3xl mb-14">
+            <SectionLabel>Advisory vs Production Ready</SectionLabel>
             <AccentBar />
-            <h2 className="text-3xl md:text-[42px] font-bold mb-7 leading-[1.15] tracking-[-0.01em]">
-              Advisory is not Production Ready-lite.
+            <h2 className="text-3xl md:text-[42px] font-bold text-[#111827] mb-5 leading-[1.15] tracking-[-0.01em]">
+              Advisory helps you think through the work. Production Ready builds the system.
             </h2>
-            <div className="space-y-4 text-white/60 text-base md:text-[17px] leading-[1.8] mb-8">
-              <p>Advisory is for companies that need help thinking, deciding, reviewing, improving, or preparing. It can absolutely create clarity and momentum, but it is not meant to replace your internal team, agency, product marketing function, sales leadership, or content production.</p>
-              <p>Building the full GTM system, roadmap, messaging matrix, partner framework, and enablement structure from the ground up? That work belongs in Production Ready.</p>
-            </div>
-            <OutlineButtonDark href="/production-ready">Explore Production Ready</OutlineButtonDark>
+            <p className="text-[#526078] text-base md:text-[17px] leading-[1.8]">
+              They solve related problems, but they are not the same offer. The right answer is not always the bigger engagement. It is the one that fits the problem.
+            </p>
           </AnimateIn>
 
+          <div className="grid md:grid-cols-2 gap-6 mb-10">
+            <AnimateIn>
+              <div className="h-full rounded-2xl p-8 border border-[#3f6bff]/25 bg-[#3f6bff]/[0.03]">
+                <div className="flex items-center gap-3 mb-5">
+                  <span className="w-9 h-9 rounded-xl flex items-center justify-center"
+                    style={{ background: "linear-gradient(135deg, rgba(63,107,255,0.15), rgba(139,92,246,0.15))" }}>
+                    <svg className="w-4.5 h-4.5 text-[#3f6bff]" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9.663 17h4.673M12 3v1m0 16v.01M5.6 5.6l.7.7m12.1-.7l-.7.7M3 12h1m16 0h1M12 17a5 5 0 002-9.584A5 5 0 109 16.5" />
+                    </svg>
+                  </span>
+                  <h3 className="text-[20px] font-bold text-[#111827]">Advisory</h3>
+                </div>
+                <p className="text-[#526078] text-[15px] leading-[1.7] mb-5">Best when you need ongoing guidance, review, coaching, or decision support.</p>
+                <p className="text-[13px] font-semibold text-[#3f6bff] uppercase tracking-[0.1em]">If you need senior help making better decisions</p>
+              </div>
+            </AnimateIn>
+
+            <AnimateIn delay={0.1}>
+              <div className="h-full rounded-2xl p-8 border border-[#e5e7eb] bg-white">
+                <div className="flex items-center gap-3 mb-5">
+                  <span className="w-9 h-9 rounded-xl flex items-center justify-center"
+                    style={{ background: "linear-gradient(135deg, rgba(63,107,255,0.10), rgba(139,92,246,0.10))" }}>
+                    <svg className="w-4.5 h-4.5 text-[#8b5cf6]" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M3 7h18M3 12h18M3 17h18" />
+                    </svg>
+                  </span>
+                  <h3 className="text-[20px] font-bold text-[#111827]">Production Ready</h3>
+                </div>
+                <p className="text-[#526078] text-[15px] leading-[1.7] mb-5">Best when you need the actual technical GTM system built: gap map, messaging matrix, demo architecture, executive narrative, partner strategy, roadmap, training, and transfer plan.</p>
+                <p className="text-[13px] font-semibold text-[#8b5cf6] uppercase tracking-[0.1em]">If you need the GTM system built and transferred</p>
+              </div>
+            </AnimateIn>
+          </div>
+
           <AnimateIn delay={0.15}>
-            <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-sm p-8"
-              style={{ boxShadow: "0 0 0 1px rgba(255,255,255,0.05), inset 0 1px 0 rgba(255,255,255,0.07)" }}>
-              <p className="text-[11px] font-semibold tracking-[0.14em] uppercase text-white/35 mb-6">Advisory does not include</p>
-              <Stagger className="space-y-3.5" stagger={0.05} delay={0.2}>
-                {NOT_INCLUDED.map((item) => (
-                  <StaggerItem key={item}>
-                    <div className="flex items-center gap-3.5">
-                      <span className="w-5 h-5 rounded-full border border-white/15 flex items-center justify-center flex-shrink-0">
-                        <svg className="w-2.5 h-2.5 text-white/35" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                          <path strokeLinecap="round" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                      </span>
-                      <span className="text-white/55 text-[14px] leading-snug">{item}</span>
-                    </div>
-                  </StaggerItem>
-                ))}
-              </Stagger>
-              <p className="mt-7 pt-5 text-[13px] text-white/40 leading-relaxed" style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}>
-                The goal is to give you better judgment at the moments where better judgment matters.
+            <div className="rounded-2xl px-7 py-6 bg-[#f5f7fb] border border-[#e5e7eb] flex flex-col sm:flex-row sm:items-center justify-between gap-5">
+              <p className="text-[#111827] text-[16px] font-semibold leading-snug">
+                Not sure which fits? A short fit call usually makes it obvious.
+              </p>
+              <div className="sm:w-auto w-full sm:flex-shrink-0">
+                <OutlineButton onClick={openModal}>Schedule a Fit Call</OutlineButton>
+              </div>
+            </div>
+          </AnimateIn>
+        </div>
+      </section>
+
+      {/* -- WHO ADVISORY IS FOR -- */}
+      <section className="relative py-24 md:py-32 bg-[#f5f7fb] overflow-hidden">
+        <div className="relative max-w-6xl mx-auto px-6">
+          <AnimateIn className="max-w-3xl mb-10">
+            <SectionLabel>Who advisory is for</SectionLabel>
+            <AccentBar />
+            <h2 className="text-3xl md:text-[40px] font-bold text-[#111827] mb-5 leading-[1.15] tracking-[-0.01em]">
+              Senior help, not generic advice.
+            </h2>
+            <p className="text-[#526078] text-base md:text-[17px] leading-[1.8]">
+              Advisory may be a fit if any of these sound familiar.
+            </p>
+          </AnimateIn>
+
+          <Stagger className="grid sm:grid-cols-2 gap-3 mb-5" stagger={0.07}>
+            {FIT.slice(0, 2).map((item, i) => (
+              <StaggerItem key={i}>
+                <motion.div
+                  whileHover={{ x: 3 }}
+                  transition={{ duration: 0.18 }}
+                  className="group flex items-start gap-4 rounded-xl p-4 bg-white border border-[#e5e7eb] transition-all duration-200 hover:border-[#3f6bff]/30 hover:shadow-[0_6px_18px_rgba(63,107,255,0.07)]"
+                >
+                  <span className="text-[13px] font-bold bg-clip-text text-transparent mt-0.5 flex-shrink-0 w-6"
+                    style={{ backgroundImage: "linear-gradient(135deg, #3f6bff, #8b5cf6)" }}>
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="text-[#526078] text-[15px] leading-[1.65]">{item}</span>
+                </motion.div>
+              </StaggerItem>
+            ))}
+          </Stagger>
+
+          <Stagger className="grid sm:grid-cols-3 gap-3 mb-5" stagger={0.07}>
+            {FIT.slice(2, 5).map((item, i) => (
+              <StaggerItem key={i}>
+                <motion.div
+                  whileHover={{ x: 3 }}
+                  transition={{ duration: 0.18 }}
+                  className="group flex items-start gap-4 rounded-xl p-4 bg-white border border-[#e5e7eb] transition-all duration-200 hover:border-[#3f6bff]/30 hover:shadow-[0_6px_18px_rgba(63,107,255,0.07)]"
+                >
+                  <span className="text-[13px] font-bold bg-clip-text text-transparent mt-0.5 flex-shrink-0 w-6"
+                    style={{ backgroundImage: "linear-gradient(135deg, #3f6bff, #8b5cf6)" }}>
+                    {String(i + 3).padStart(2, "0")}
+                  </span>
+                  <span className="text-[#526078] text-[15px] leading-[1.65]">{item}</span>
+                </motion.div>
+              </StaggerItem>
+            ))}
+          </Stagger>
+
+          <Stagger className="grid sm:grid-cols-2 gap-3 mb-8" stagger={0.07}>
+            {FIT.slice(5, 7).map((item, i) => (
+              <StaggerItem key={i}>
+                <motion.div
+                  whileHover={{ x: 3 }}
+                  transition={{ duration: 0.18 }}
+                  className="group flex items-start gap-4 rounded-xl p-4 bg-white border border-[#e5e7eb] transition-all duration-200 hover:border-[#3f6bff]/30 hover:shadow-[0_6px_18px_rgba(63,107,255,0.07)]"
+                >
+                  <span className="text-[13px] font-bold bg-clip-text text-transparent mt-0.5 flex-shrink-0 w-6"
+                    style={{ backgroundImage: "linear-gradient(135deg, #3f6bff, #8b5cf6)" }}>
+                    {String(i + 6).padStart(2, "0")}
+                  </span>
+                  <span className="text-[#526078] text-[15px] leading-[1.65]">{item}</span>
+                </motion.div>
+              </StaggerItem>
+            ))}
+          </Stagger>
+
+          <AnimateIn delay={0.3}>
+            <div className="rounded-2xl p-6 border border-dashed border-[#9ca3af]/40 bg-white/60 max-w-xl">
+              <p className="text-[12px] font-semibold tracking-[0.1em] uppercase text-[#9ca3af] mb-2">Probably not a fit</p>
+              <p className="text-[14px] text-[#526078] leading-[1.7]">
+                If you mainly need high-volume content, campaign execution, paid media, SDR work, or a full GTM system built from scratch, Advisory is probably not the right fit.
               </p>
             </div>
           </AnimateIn>
         </div>
       </section>
 
-      {/* -- WHY LIMITED CAPACITY MATTERS (04) -- */}
-      <section className="relative py-24 md:py-32 bg-white overflow-hidden">
-        <Numeral n="04" />
-        <div className="relative max-w-6xl mx-auto px-6">
-          <div className="grid md:grid-cols-[1.1fr_0.9fr] gap-12 md:gap-16 items-center">
-            <div>
-              <AnimateIn>
-                <SectionLabel>Why limited capacity matters</SectionLabel>
-                <AccentBar />
-                <h2 className="text-3xl md:text-[42px] font-bold text-[#111827] mb-8 leading-[1.15] tracking-[-0.01em]">
-                  Good advice takes attention.
-                </h2>
-              </AnimateIn>
-              <Stagger className="space-y-5" stagger={0.1} delay={0.1}>
-                {[
-                  "I only take on a small number of advisory clients at a time. That is partly for my sanity, but mostly because this kind of advice is only useful when I am close enough to understand the company.",
-                  "To give useful guidance, I need to learn the product, the buyer, the market, the current story, the team, the pressure points, and where the company is trying to go. Otherwise I am just reacting from the outside, and you do not need to pay premium advisory rates for generic reactions.",
-                  "Limited capacity is good for both of us. Advisory clients are not buying a slot in an overloaded calendar. They are buying focused access to someone who is actually trying to understand the company well enough to help.",
-                ].map((p, i) => (
-                  <StaggerItem key={i}>
-                    <p className="text-[#526078] text-base md:text-[17px] leading-[1.8]">{p}</p>
-                  </StaggerItem>
-                ))}
-              </Stagger>
-            </div>
-
-            <AnimateIn delay={0.2}>
-              <div className="rounded-2xl p-8 bg-[#f5f7fb] border border-[#e5e7eb]">
-                <p className="text-[11px] font-semibold tracking-[0.14em] uppercase text-[#3f6bff] mb-6">The 3-month minimum</p>
-                <div className="space-y-6">
-                  {[
-                    { k: "Week 1", v: "First useful advice can happen quickly." },
-                    { k: "Month 1+", v: "Patterns, tensions, and tradeoffs start to surface." },
-                    { k: "Month 3", v: "The better advice arrives once the context is real." },
-                  ].map((step, i) => (
-                    <div key={i} className="flex gap-4">
-                      <div className="flex flex-col items-center">
-                        <span className="w-3 h-3 rounded-full flex-shrink-0 mt-1"
-                          style={{ background: "linear-gradient(135deg, #3f6bff, #8b5cf6)" }} />
-                        {i < 2 && <span className="w-px flex-1 mt-1" style={{ background: "linear-gradient(to bottom, rgba(63,107,255,0.3), rgba(139,92,246,0.1))" }} />}
-                      </div>
-                      <div className="pb-1">
-                        <p className="text-[13px] font-bold text-[#111827] mb-1">{step.k}</p>
-                        <p className="text-[14px] text-[#526078] leading-[1.6]">{step.v}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </AnimateIn>
-          </div>
-        </div>
-      </section>
-
       {/* -- ADVISORY OPTIONS (pricing) -- */}
-      <section className="relative py-24 md:py-32 bg-[#f5f7fb] overflow-hidden">
+      <section className="relative py-24 md:py-32 bg-white overflow-hidden">
         <div className="relative max-w-6xl mx-auto px-6">
           <AnimateIn className="max-w-3xl mb-14 md:text-center md:mx-auto">
             <div className="md:flex md:flex-col md:items-center">
@@ -695,7 +714,7 @@ export default function AdvisoryWork() {
                 Choose the level of access that matches the need.
               </h2>
               <p className="text-[#526078] text-base md:text-[17px] leading-[1.8]">
-                Advisory work is structured around recurring access, asynchronous support, and enough continuity to make the advice useful.
+                Advisory is structured around recurring access, asynchronous support, and enough continuity to make the advice useful.
               </p>
             </div>
           </AnimateIn>
@@ -765,105 +784,55 @@ export default function AdvisoryWork() {
         </div>
       </section>
 
-      {/* -- HOW ADVISORY DIFFERS FROM PRODUCTION READY -- */}
-      <section className="relative py-24 md:py-32 bg-white overflow-hidden">
-        <div className="relative max-w-6xl mx-auto px-6">
-          <AnimateIn className="max-w-3xl mb-14">
-            <SectionLabel>Advisory vs Production Ready</SectionLabel>
-            <AccentBar />
-            <h2 className="text-3xl md:text-[42px] font-bold text-[#111827] mb-5 leading-[1.15] tracking-[-0.01em]">
-              Advisory helps you think through the work. Production Ready builds the system.
-            </h2>
-            <p className="text-[#526078] text-base md:text-[17px] leading-[1.8]">
-              They solve related problems, but they are not the same offer. The right answer is not always the bigger engagement. It is the one that fits the problem.
-            </p>
-          </AnimateIn>
-
-          <div className="grid md:grid-cols-2 gap-6 mb-10">
-            <AnimateIn>
-              <div className="h-full rounded-2xl p-8 border border-[#3f6bff]/25 bg-[#3f6bff]/[0.03]">
-                <div className="flex items-center gap-3 mb-5">
-                  <span className="w-9 h-9 rounded-xl flex items-center justify-center"
-                    style={{ background: "linear-gradient(135deg, rgba(63,107,255,0.15), rgba(139,92,246,0.15))" }}>
-                    <svg className="w-4.5 h-4.5 text-[#3f6bff]" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M9.663 17h4.673M12 3v1m0 16v.01M5.6 5.6l.7.7m12.1-.7l-.7.7M3 12h1m16 0h1M12 17a5 5 0 002-9.584A5 5 0 109 16.5" />
-                    </svg>
-                  </span>
-                  <h3 className="text-[20px] font-bold text-[#111827]">Advisory</h3>
-                </div>
-                <p className="text-[#526078] text-[15px] leading-[1.7] mb-5">Best when you need ongoing guidance, review, coaching, or decision support.</p>
-                <p className="text-[13px] font-semibold text-[#3f6bff] uppercase tracking-[0.1em]">If you need senior help making better decisions</p>
-              </div>
-            </AnimateIn>
-
-            <AnimateIn delay={0.1}>
-              <div className="h-full rounded-2xl p-8 border border-[#e5e7eb] bg-white">
-                <div className="flex items-center gap-3 mb-5">
-                  <span className="w-9 h-9 rounded-xl flex items-center justify-center"
-                    style={{ background: "linear-gradient(135deg, rgba(63,107,255,0.10), rgba(139,92,246,0.10))" }}>
-                    <svg className="w-4.5 h-4.5 text-[#8b5cf6]" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M3 7h18M3 12h18M3 17h18" />
-                    </svg>
-                  </span>
-                  <h3 className="text-[20px] font-bold text-[#111827]">Production Ready</h3>
-                </div>
-                <p className="text-[#526078] text-[15px] leading-[1.7] mb-5">Best when you need the actual technical GTM system built: gap map, messaging matrix, demo architecture, executive narrative, partner strategy, roadmap, training, and transfer plan.</p>
-                <p className="text-[13px] font-semibold text-[#8b5cf6] uppercase tracking-[0.1em]">If you need the GTM system built and transferred</p>
-              </div>
-            </AnimateIn>
-          </div>
-
-          <AnimateIn delay={0.15}>
-            <div className="rounded-2xl px-7 py-6 bg-[#f5f7fb] border border-[#e5e7eb] flex flex-col sm:flex-row sm:items-center justify-between gap-5">
-              <p className="text-[#111827] text-[16px] font-semibold leading-snug">
-                Not sure which fits? A short fit call usually makes it obvious.
-              </p>
-              <div className="sm:w-auto w-full sm:flex-shrink-0">
-                <OutlineButton onClick={openModal}>Schedule a Fit Call</OutlineButton>
-              </div>
-            </div>
-          </AnimateIn>
-        </div>
-      </section>
-
-      {/* -- WHO ADVISORY IS FOR -- */}
+      {/* -- WHY LIMITED CAPACITY MATTERS -- */}
       <section className="relative py-24 md:py-32 bg-[#f5f7fb] overflow-hidden">
         <div className="relative max-w-6xl mx-auto px-6">
-          <div className="grid md:grid-cols-[0.85fr_1.15fr] gap-12 md:gap-16">
-            <AnimateIn>
-              <SectionLabel>Who advisory is for</SectionLabel>
-              <AccentBar />
-              <h2 className="text-3xl md:text-[40px] font-bold text-[#111827] mb-6 leading-[1.15] tracking-[-0.01em]">
-                Senior help, not generic advice.
-              </h2>
-              <p className="text-[#526078] text-base md:text-[17px] leading-[1.8] mb-8">
-                Advisory may be a fit if any of these sound familiar.
-              </p>
-              <div className="rounded-2xl p-6 border border-dashed border-[#9ca3af]/40 bg-white/60">
-                <p className="text-[12px] font-semibold tracking-[0.1em] uppercase text-[#9ca3af] mb-2">Probably not a fit</p>
-                <p className="text-[14px] text-[#526078] leading-[1.7]">
-                  If you mainly need high-volume content, campaign execution, paid media, SDR work, or a full GTM system built from scratch.
-                </p>
+          <div className="grid md:grid-cols-[1.1fr_0.9fr] gap-12 md:gap-16 items-center">
+            <div>
+              <AnimateIn>
+                <SectionLabel>Why limited capacity matters</SectionLabel>
+                <AccentBar />
+                <h2 className="text-3xl md:text-[42px] font-bold text-[#111827] mb-8 leading-[1.15] tracking-[-0.01em]">
+                  Good advice takes attention.
+                </h2>
+              </AnimateIn>
+              <Stagger className="space-y-5" stagger={0.1} delay={0.1}>
+                {[
+                  "I only take on a small number of advisory clients at a time. That is partly for my sanity, but mostly because this kind of advice is only useful when I am close enough to understand the company.",
+                  "To give useful guidance, I need to learn the product, the buyer, the market, the current story, the team, the pressure points, and where the company is trying to go. Otherwise I am just reacting from the outside, and you do not need to pay premium advisory rates for generic reactions.",
+                  "Limited capacity is good for both of us. Advisory clients are not buying a slot in an overloaded calendar. They are buying focused access to someone who is actually trying to understand the company well enough to help.",
+                ].map((p, i) => (
+                  <StaggerItem key={i}>
+                    <p className="text-[#526078] text-base md:text-[17px] leading-[1.8]">{p}</p>
+                  </StaggerItem>
+                ))}
+              </Stagger>
+            </div>
+
+            <AnimateIn delay={0.2}>
+              <div className="rounded-2xl p-8 bg-white border border-[#e5e7eb]">
+                <p className="text-[11px] font-semibold tracking-[0.14em] uppercase text-[#3f6bff] mb-6">The 3-month minimum</p>
+                <div className="space-y-6">
+                  {[
+                    { k: "Week 1", v: "First useful advice can happen quickly." },
+                    { k: "Month 1+", v: "Patterns, tensions, and tradeoffs start to surface." },
+                    { k: "Month 3", v: "The better advice arrives once the context is real." },
+                  ].map((step, i) => (
+                    <div key={i} className="flex gap-4">
+                      <div className="flex flex-col items-center">
+                        <span className="w-3 h-3 rounded-full flex-shrink-0 mt-1"
+                          style={{ background: "linear-gradient(135deg, #3f6bff, #8b5cf6)" }} />
+                        {i < 2 && <span className="w-px flex-1 mt-1" style={{ background: "linear-gradient(to bottom, rgba(63,107,255,0.3), rgba(139,92,246,0.1))" }} />}
+                      </div>
+                      <div className="pb-1">
+                        <p className="text-[13px] font-bold text-[#111827] mb-1">{step.k}</p>
+                        <p className="text-[14px] text-[#526078] leading-[1.6]">{step.v}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </AnimateIn>
-
-            <Stagger className="space-y-3" stagger={0.07}>
-              {FIT.map((item, i) => (
-                <StaggerItem key={i}>
-                  <motion.div
-                    whileHover={{ x: 3 }}
-                    transition={{ duration: 0.18 }}
-                    className="group flex items-start gap-4 rounded-xl p-4 bg-white border border-[#e5e7eb] transition-all duration-200 hover:border-[#3f6bff]/30 hover:shadow-[0_6px_18px_rgba(63,107,255,0.07)]"
-                  >
-                    <span className="text-[13px] font-bold bg-clip-text text-transparent mt-0.5 flex-shrink-0 w-6"
-                      style={{ backgroundImage: "linear-gradient(135deg, #3f6bff, #8b5cf6)" }}>
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <span className="text-[#526078] text-[15px] leading-[1.65]">{item}</span>
-                  </motion.div>
-                </StaggerItem>
-              ))}
-            </Stagger>
           </div>
         </div>
       </section>

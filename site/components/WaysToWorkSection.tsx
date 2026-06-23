@@ -101,7 +101,7 @@ function FlagshipCard({ inView }: { inView: boolean }) {
 
         {/* Description */}
         <p className="text-white/55 text-[15px] leading-[1.8] mb-8">
-          Built for technical startups whose product is ahead of their go-to-market story. Constructs the narrative, messaging, demo, partner, and executive story systems your team needs to scale — without the founder in every room.
+          For technical companies that need the GTM system built. Production Ready creates the story, messaging architecture, demo flow, partner narrative, executive framing, and rollout structure your team can use.
         </p>
 
         {/* Outcomes */}
@@ -200,7 +200,7 @@ function AdvisoryCard({ inView }: { inView: boolean }) {
         </div>
 
         <p className="text-[#526078] text-[14px] leading-[1.75] mb-6">
-          You don't always need the full Production Ready path. Sometimes you need senior judgment on a specific problem — a sharper message, a better demo, a cleaner partner story.
+          For technical companies that need senior guidance without a full buildout. Advisory is for pressure-testing messaging, demos, launches, partner strategy, executive narrative, and field readiness decisions.
         </p>
 
         <div className="flex-1 mb-7">
@@ -285,7 +285,7 @@ function FitCallCard({ inView }: { inView: boolean }) {
         </div>
 
         <p className="text-[#526078] text-[14px] leading-[1.75] mb-6 flex-1">
-          That's normal. A 30-minute fit call usually surfaces where the story is breaking — whether that's messaging, demo structure, partner enablement, sales repeatability, or executive framing.
+          For teams that know something is not connecting, but are not sure what help they need. A short fit call usually makes the right next step obvious.
         </p>
 
         <a

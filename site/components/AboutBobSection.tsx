@@ -63,7 +63,7 @@ export default function AboutBobSection() {
               >
                 <Image
                   src="/bob-headshot-portrait.webp"
-                  alt="Bob Hart — Successfulbob LLC"
+                  alt="Bob Hart, Successfulbob LLC"
                   fill
                   sizes="380px"
                   className="object-cover object-top"

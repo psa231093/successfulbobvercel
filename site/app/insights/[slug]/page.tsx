@@ -339,7 +339,7 @@ export default async function InsightArticlePage({
             Get practical GTM thinking in your inbox.
           </h2>
           <p className="text-white/55 text-[16px] leading-[1.75] mb-8">
-            Useful ideas for technical founders, GTM leaders, and partner teams — not generic startup advice.
+            Useful ideas for technical founders, GTM leaders, and partner teams. Not generic startup advice.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <GradientButton href="/insights#subscribe">Subscribe to Insights</GradientButton>

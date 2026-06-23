@@ -8,7 +8,7 @@ const capabilities = [
     n: "01",
     headline: "A clearer company story",
     sub: "Narrative architecture",
-    description: "One version of what you do, why it matters, and who it's for — that everyone on the team can actually repeat.",
+    description: "One version of what you do, why it matters, and who it's for, that everyone on the team can actually repeat.",
   },
   {
     n: "02",
@@ -26,11 +26,11 @@ const capabilities = [
     n: "04",
     headline: "Messaging that changes by buyer role",
     sub: "Persona segmentation",
-    description: "The same product told differently to the buyer, the user, the exec, and the IT team — without contradicting itself.",
+    description: "The same product told differently to the buyer, the user, the exec, and the IT team, without contradicting itself.",
   },
   {
     n: "05",
-    headline: "Partner enablement that people can actually use",
+    headline: "Partner enablement people can actually use",
     sub: "Channel readiness",
     description: "Materials, talk tracks, and certification logic that lets your channel carry the story without you in the room.",
   },
@@ -38,7 +38,7 @@ const capabilities = [
     n: "06",
     headline: "Executive framing that connects to urgency, risk, cost, and efficiency",
     sub: "C-suite narrative",
-    description: "The board and executive version of your story — tied to outcomes, not architecture.",
+    description: "The board and executive version of your story, tied to outcomes, not architecture.",
   },
   {
     n: "07",
@@ -215,7 +215,7 @@ export default function WhatWeDoSection() {
             </p>
             <div className="w-10 h-[3px] rounded-full bg-gradient-to-r from-[#3f6bff] to-[#8b5cf6] mb-5" />
             <h2 className="text-3xl md:text-[42px] font-bold text-white leading-[1.15] tracking-[-0.01em]">
-              Successfulbob helps technical companies close that gap.
+              Successfulbob helps technical companies close the translation gap.
             </h2>
           </motion.div>
 
@@ -226,7 +226,7 @@ export default function WhatWeDoSection() {
             className="flex flex-col justify-end"
           >
             <p className="text-white/55 text-base md:text-[17px] leading-[1.8] mb-4">
-              I help technical startups translate what they built into the business problems, workflows, buyer pains, and market moments it actually addresses.
+              I help technical startups translate what they built into the business problems, workflows, buyer pains, and market moments it actually addresses. Heavy technical capability is valuable only when the right people can understand it, trust it, and repeat it.
             </p>
             <p className="text-white/40 text-[14px] leading-relaxed">
               Hover any capability below to see what it means in practice.
