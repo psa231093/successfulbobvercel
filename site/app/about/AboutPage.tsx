@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, useInView, AnimatePresence } from "framer-motion";
@@ -251,6 +251,13 @@ export default function AboutPage() {
   const bgRef = useRef(null);
   const bgInView = useInView(bgRef, { once: true, margin: "-80px" });
   const { openModal } = useCalendarModal();
+  const [imgExpanded, setImgExpanded] = useState(false);
+  useEffect(() => {
+    if (!imgExpanded) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setImgExpanded(false); };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [imgExpanded]);
 
   return (
     <>
@@ -438,8 +445,58 @@ export default function AboutPage() {
 
             {/* -- Illustration column -- */}
             <AnimateIn delay={0.2} className="flex justify-center">
-              <Image src="/translating.png" alt="Translating technical value" width={480} height={400} className="w-full h-auto rounded-2xl" />
+              <div
+                className="relative cursor-zoom-in group w-full"
+                onClick={() => setImgExpanded(true)}
+              >
+                <Image src="/translating.png" alt="Translating technical value" width={480} height={400} className="w-full h-auto rounded-2xl transition-transform duration-300 group-hover:scale-[1.02]" />
+                <div
+                  className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-white text-[11px]"
+                  style={{ background: "rgba(6,17,38,0.75)", border: "1px solid rgba(255,255,255,0.15)" }}
+                >
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-5h-4m4 0v4m0-4l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                  </svg>
+                  Click to expand
+                </div>
+              </div>
             </AnimateIn>
+
+            {/* -- Fullscreen image modal -- */}
+            <AnimatePresence>
+              {imgExpanded && (
+                <motion.div
+                  key="img-modal"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="fixed inset-0 z-50 flex items-center justify-center p-6"
+                  style={{ background: "rgba(0,0,0,0.88)" }}
+                  onClick={() => setImgExpanded(false)}
+                >
+                  <motion.div
+                    initial={{ scale: 0.92, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    exit={{ scale: 0.92, opacity: 0 }}
+                    transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+                    className="relative max-w-4xl w-full cursor-zoom-out"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <Image src="/translating.png" alt="Translating technical value" width={960} height={800} className="w-full h-auto rounded-2xl" />
+                  </motion.div>
+                  <button
+                    className="absolute top-4 right-4 text-white/60 hover:text-white transition-colors"
+                    onClick={() => setImgExpanded(false)}
+                    aria-label="Close"
+                  >
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </motion.div>
+              )}
+            </AnimatePresence>
 
           </div>
 

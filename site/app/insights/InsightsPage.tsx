@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 import { AnimateIn, Stagger, StaggerItem } from "@/components/AnimateIn";
 import {
   GradientButton,
@@ -180,6 +180,158 @@ function NewsletterForm({ dark }: { dark?: boolean }) {
   );
 }
 
+/* -- Topics Section (auto-advances, click to take over) ----------- */
+
+function TopicsSection({ categories }: { categories: InsightCategory[] }) {
+  const ref = useRef<HTMLElement>(null);
+  const inView = useInView(ref, { margin: "-100px" });
+  const [active, setActive] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    if (!inView || paused) return;
+    const id = setInterval(() => setActive((a) => (a + 1) % categories.length), 3800);
+    return () => clearInterval(id);
+  }, [inView, paused, categories.length]);
+
+  const cat = categories[active];
+
+  return (
+    <section
+      ref={ref}
+      className="relative py-24 md:py-32 overflow-hidden"
+      style={{ background: "#061126" }}
+    >
+      {/* Radial glow */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: "radial-gradient(ellipse 70% 55% at 60% 50%, rgba(63,107,255,0.09) 0%, transparent 70%)" }}
+      />
+      {/* Dot grid */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.018]"
+        style={{ backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.9) 1px, transparent 1px)", backgroundSize: "28px 28px" }}
+      />
+
+      <div className="relative max-w-6xl mx-auto px-6">
+        {/* Header */}
+        <AnimateIn className="max-w-2xl mb-12">
+          <p className="text-[11px] font-semibold tracking-[0.14em] uppercase mb-3" style={{ color: "#7c9fff" }}>
+            What I write about
+          </p>
+          <div className="w-10 h-[3px] rounded-full mb-5" style={{ background: "linear-gradient(90deg, #3f6bff, #8b5cf6)" }} />
+          <h2 className="text-3xl md:text-[42px] font-bold text-white mb-4 leading-[1.15] tracking-[-0.01em]">
+            The main topics
+          </h2>
+          <p style={{ color: "rgba(255,255,255,0.45)" }} className="text-base md:text-[17px] leading-[1.8]">
+            Find the type of problem you&apos;re trying to solve without digging through a giant pile of posts.
+          </p>
+        </AnimateIn>
+
+        <div className="flex flex-col md:flex-row gap-6 md:gap-10 items-start">
+          {/* Tab rail */}
+          <div className="flex md:flex-col gap-2 overflow-x-auto md:overflow-visible pb-1 md:pb-0 -mx-6 px-6 md:mx-0 md:px-0 md:w-64 flex-shrink-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            {categories.map((c, i) => {
+              const on = i === active;
+              return (
+                <button
+                  key={c.slug}
+                  onClick={() => { setActive(i); setPaused(true); }}
+                  className="relative flex-shrink-0 text-left px-4 py-3 rounded-xl transition-all duration-200 md:w-full"
+                  style={{
+                    background: on ? "rgba(63,107,255,0.14)" : "transparent",
+                    border: on ? "1px solid rgba(63,107,255,0.35)" : "1px solid transparent",
+                  }}
+                >
+                  {/* Progress bar on active */}
+                  {on && !paused && (
+                    <motion.div
+                      key={`bar-${i}`}
+                      className="absolute bottom-0 left-0 h-[2px] rounded-full"
+                      style={{ background: "linear-gradient(90deg, #3f6bff, #8b5cf6)" }}
+                      initial={{ width: "0%" }}
+                      animate={{ width: "100%" }}
+                      transition={{ duration: 3.8, ease: "linear" }}
+                    />
+                  )}
+                  <span
+                    className="text-[13px] md:text-[14px] font-semibold leading-snug transition-colors duration-200 whitespace-nowrap md:whitespace-normal"
+                    style={{ color: on ? "#ffffff" : "rgba(255,255,255,0.40)" }}
+                  >
+                    {c.title}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Active category panel */}
+          <div className="relative min-h-[280px] flex-1">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={cat.slug}
+                initial={{ opacity: 0, x: 18 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -18 }}
+                transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                className="rounded-2xl p-7 md:p-9"
+                style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}
+              >
+                {/* Category number */}
+                <span
+                  className="text-[11px] font-bold tabular-nums block mb-4"
+                  style={{ background: "linear-gradient(135deg, #3f6bff, #8b5cf6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
+                >
+                  {String(active + 1).padStart(2, "0")} / {String(categories.length).padStart(2, "0")}
+                </span>
+
+                <h3 className="text-[24px] md:text-[30px] font-bold text-white mb-4 leading-tight">
+                  {cat.title}
+                </h3>
+
+                {cat.blurb && (
+                  <p className="text-[15px] md:text-[16px] leading-[1.75] mb-7" style={{ color: "rgba(255,255,255,0.55)" }}>
+                    {cat.blurb}
+                  </p>
+                )}
+
+                {cat.topics && cat.topics.length > 0 && (
+                  <div className="flex flex-wrap gap-2 mb-8">
+                    {cat.topics.map((t) => (
+                      <span
+                        key={t}
+                        className="px-3 py-1.5 rounded-lg text-[12px] font-medium leading-snug"
+                        style={{
+                          background: "rgba(63,107,255,0.10)",
+                          border: "1px solid rgba(63,107,255,0.25)",
+                          color: "rgba(255,255,255,0.65)",
+                        }}
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                <Link
+                  href={`/insights#${cat.slug}`}
+                  className="inline-flex items-center gap-2 text-[13px] font-semibold transition-colors duration-200"
+                  style={{ color: "#7c9fff" }}
+                >
+                  Browse {cat.title} articles
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* -- Page --------------------------------------------------------- */
 
 export default function InsightsPage({
@@ -349,47 +501,7 @@ export default function InsightsPage({
       </section>
 
       {/* -- WHAT I WRITE ABOUT (categories) -- */}
-      <section className="relative py-24 md:py-32 bg-[#f5f7fb] overflow-hidden">
-        <div className="relative max-w-6xl mx-auto px-6">
-          <AnimateIn className="max-w-3xl mb-14">
-            <SectionLabel>What I write about</SectionLabel>
-            <AccentBar />
-            <h2 className="text-3xl md:text-[42px] font-bold text-[#111827] mb-5 leading-[1.15] tracking-[-0.01em]">
-              The main topics
-            </h2>
-            <p className="text-[#526078] text-base md:text-[17px] leading-[1.8]">
-              Find the type of problem you&apos;re trying to solve without digging through a giant pile of posts.
-            </p>
-          </AnimateIn>
-
-          {[displayCategories.slice(0, 2), displayCategories.slice(2, 5), displayCategories.slice(5, 7)].map((row, rowIdx) => (
-            <Stagger key={rowIdx} className={`grid gap-5 mb-5 ${rowIdx === 1 ? "sm:grid-cols-3" : "sm:grid-cols-2"}`} stagger={0.07}>
-              {row.map((c) => (
-                <StaggerItem key={c.title} className="h-full">
-                  <motion.div
-                    whileHover={{ y: -3 }}
-                    transition={{ duration: 0.2 }}
-                    className="group h-full flex flex-col rounded-2xl p-6 bg-white border border-[#e5e7eb] transition-shadow duration-200 hover:shadow-[0_12px_30px_rgba(63,107,255,0.10)]"
-                  >
-                    <h3 className="text-[18px] font-bold text-[#111827] mb-2.5 group-hover:text-[#3f6bff] transition-colors duration-200">{c.title}</h3>
-                    {c.blurb && <p className="text-[#526078] text-[14px] leading-[1.65] mb-5">{c.blurb}</p>}
-                    {c.topics && c.topics.length > 0 && (
-                      <div className="mt-auto space-y-2">
-                        {c.topics.map((t) => (
-                          <div key={t} className="flex items-start gap-2.5">
-                            <span className="mt-1.5 w-1 h-1 rounded-full flex-shrink-0" style={{ background: "linear-gradient(135deg, #3f6bff, #8b5cf6)" }} />
-                            <span className="text-[13px] text-[#526078]/90 leading-snug">{t}</span>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </motion.div>
-                </StaggerItem>
-              ))}
-            </Stagger>
-          ))}
-        </div>
-      </section>
+      <TopicsSection categories={displayCategories} />
 
       {/* -- NEWSLETTER -- dark -- */}
       <section id="subscribe" className="relative py-24 md:py-28 bg-[#061126] text-white overflow-hidden scroll-mt-20">

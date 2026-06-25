@@ -411,6 +411,252 @@ function ScenarioSpotlight() {
 
 /* --- Page ------------------------------------------------------ */
 
+function AdvisoryFitSection({ openModal }: { openModal: () => void }) {
+  const ref = useRef<HTMLElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-80px" });
+  const [selected, setSelected] = useState<Set<number>>(new Set());
+
+  // Auto-check one by one when section enters view
+  useEffect(() => {
+    if (!inView) return;
+    const timers: ReturnType<typeof setTimeout>[] = [];
+    FIT.forEach((_, i) => {
+      timers.push(
+        setTimeout(() => {
+          setSelected((prev) => new Set([...prev, i]));
+        }, 400 + i * 650)
+      );
+    });
+    return () => timers.forEach(clearTimeout);
+  }, [inView]);
+
+  const count = selected.size;
+  const isFit = count >= 3;
+
+  return (
+    <section
+      ref={ref}
+      className="relative py-24 md:py-32 overflow-hidden"
+      style={{ background: "#061126" }}
+    >
+      {/* Subtle radial glow */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(63,107,255,0.10) 0%, transparent 70%)",
+        }}
+      />
+      {/* Dot grid */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.018]"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle, rgba(255,255,255,0.9) 1px, transparent 1px)",
+          backgroundSize: "28px 28px",
+        }}
+      />
+
+      <div className="relative max-w-6xl mx-auto px-6">
+        {/* Header row */}
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <p
+              className="text-[11px] font-semibold tracking-[0.14em] uppercase mb-3"
+              style={{ color: "#7c9fff" }}
+            >
+              Who advisory is for
+            </p>
+            <div className="w-10 h-[3px] rounded-full mb-5" style={{ background: "linear-gradient(90deg, #3f6bff, #8b5cf6)" }} />
+            <h2 className="text-3xl md:text-[40px] font-bold text-white leading-[1.15] tracking-[-0.01em] mb-3">
+              Does any of this sound familiar?
+            </h2>
+            <p style={{ color: "rgba(255,255,255,0.45)" }} className="text-base md:text-[17px] leading-[1.8]">
+              Select the ones that apply. No wrong answers.
+            </p>
+          </motion.div>
+
+          {/* Live counter */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={inView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="flex-shrink-0"
+          >
+            <div
+              className="flex items-center gap-3 px-5 py-3 rounded-2xl"
+              style={{
+                background: isFit ? "rgba(63,107,255,0.15)" : "rgba(255,255,255,0.05)",
+                border: isFit ? "1px solid rgba(63,107,255,0.4)" : "1px solid rgba(255,255,255,0.1)",
+                transition: "all 0.3s ease",
+              }}
+            >
+              {/* Mini progress dots */}
+              <div className="flex items-center gap-1">
+                {FIT.map((_, i) => (
+                  <div
+                    key={i}
+                    className="w-2 h-2 rounded-full transition-all duration-300"
+                    style={{
+                      background: i < count
+                        ? "linear-gradient(135deg, #3f6bff, #8b5cf6)"
+                        : "rgba(255,255,255,0.15)",
+                      transform: i < count ? "scale(1.15)" : "scale(1)",
+                    }}
+                  />
+                ))}
+              </div>
+              <span
+                className="text-[13px] font-semibold tabular-nums"
+                style={{ color: isFit ? "#9db4ff" : "rgba(255,255,255,0.4)" }}
+              >
+                {count}/{FIT.length}
+              </span>
+            </div>
+            <AnimatePresence>
+              {isFit && (
+                <motion.p
+                  key="fit-label"
+                  initial={{ opacity: 0, y: -4 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -4 }}
+                  className="text-[11px] font-semibold text-center mt-2"
+                  style={{ color: "#7c9fff" }}
+                >
+                  Sounds like a fit ↓
+                </motion.p>
+              )}
+            </AnimatePresence>
+          </motion.div>
+        </div>
+
+        {/* FIT cards grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-8">
+          {FIT.map((item, i) => {
+            const on = selected.has(i);
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.1 + i * 0.06, ease: [0.22, 1, 0.36, 1] }}
+                className="relative text-left rounded-2xl p-5 w-full"
+                style={{
+                  background: on
+                    ? "rgba(63,107,255,0.12)"
+                    : "rgba(255,255,255,0.04)",
+                  border: on
+                    ? "1px solid rgba(63,107,255,0.45)"
+                    : "1px solid rgba(255,255,255,0.08)",
+                  boxShadow: on ? "0 0 24px rgba(63,107,255,0.12)" : "none",
+                  transition: "all 0.2s ease",
+                }}
+              >
+                {/* Number + check */}
+                <div className="flex items-center justify-between mb-3">
+                  <span
+                    className="text-[11px] font-bold tabular-nums"
+                    style={{
+                      background: "linear-gradient(135deg, #3f6bff, #8b5cf6)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                    }}
+                  >
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <AnimatePresence>
+                    {on && (
+                      <motion.div
+                        key="check"
+                        initial={{ scale: 0, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        exit={{ scale: 0, opacity: 0 }}
+                        transition={{ type: "spring", stiffness: 500, damping: 25 }}
+                        className="w-5 h-5 rounded-full flex items-center justify-center"
+                        style={{ background: "linear-gradient(135deg, #3f6bff, #8b5cf6)" }}
+                      >
+                        <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
+                          <path d="M2 6l3 3 5-5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </motion.div>
+                    )}
+                    {!on && (
+                      <motion.div
+                        key="empty"
+                        initial={{ scale: 0, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        exit={{ scale: 0, opacity: 0 }}
+                        className="w-5 h-5 rounded-full"
+                        style={{ border: "1.5px solid rgba(255,255,255,0.15)" }}
+                      />
+                    )}
+                  </AnimatePresence>
+                </div>
+                <p
+                  className="text-[14px] md:text-[15px] leading-[1.6] font-medium transition-colors duration-200"
+                  style={{ color: on ? "rgba(255,255,255,0.90)" : "rgba(255,255,255,0.52)" }}
+                >
+                  {item}
+                </p>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Bottom row: not a fit + CTA */}
+        <div className="flex flex-col md:flex-row gap-4 items-start">
+          <div
+            className="flex-1 rounded-2xl p-5"
+            style={{
+              background: "rgba(255,255,255,0.03)",
+              border: "1px dashed rgba(255,255,255,0.12)",
+            }}
+          >
+            <p
+              className="text-[11px] font-semibold tracking-[0.1em] uppercase mb-2"
+              style={{ color: "rgba(255,255,255,0.25)" }}
+            >
+              Probably not a fit
+            </p>
+            <p className="text-[13px] leading-[1.7]" style={{ color: "rgba(255,255,255,0.38)" }}>
+              If you mainly need high-volume content, campaign execution, paid media, SDR work, or a full GTM system built from scratch, Advisory is probably not the right fit.
+            </p>
+          </div>
+
+          <AnimatePresence>
+            {isFit && (
+              <motion.div
+                key="cta"
+                initial={{ opacity: 0, x: 16 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 16 }}
+                transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                className="flex-shrink-0 md:self-center"
+              >
+                <button
+                  onClick={openModal}
+                  className="relative flex items-center gap-2.5 px-7 py-3.5 rounded-xl text-[15px] font-semibold text-white overflow-hidden"
+                  style={{
+                    background: "linear-gradient(135deg, #3f6bff, #8b5cf6)",
+                    boxShadow: "0 8px 28px rgba(63,107,255,0.35)",
+                  }}
+                >
+                  <CalendarIcon />
+                  Schedule a Fit Call
+                </button>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function AdvisoryWork() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const { openModal } = useCalendarModal();
@@ -625,83 +871,7 @@ export default function AdvisoryWork() {
       </section>
 
       {/* -- WHO ADVISORY IS FOR -- */}
-      <section className="relative py-24 md:py-32 bg-[#f5f7fb] overflow-hidden">
-        <div className="relative max-w-6xl mx-auto px-6">
-          <AnimateIn className="max-w-3xl mb-10">
-            <SectionLabel>Who advisory is for</SectionLabel>
-            <AccentBar />
-            <h2 className="text-3xl md:text-[40px] font-bold text-[#111827] mb-5 leading-[1.15] tracking-[-0.01em]">
-              Senior help, not generic advice.
-            </h2>
-            <p className="text-[#526078] text-base md:text-[17px] leading-[1.8]">
-              Advisory may be a fit if any of these sound familiar.
-            </p>
-          </AnimateIn>
-
-          <Stagger className="grid sm:grid-cols-2 gap-3 mb-5" stagger={0.07}>
-            {FIT.slice(0, 2).map((item, i) => (
-              <StaggerItem key={i}>
-                <motion.div
-                  whileHover={{ x: 3 }}
-                  transition={{ duration: 0.18 }}
-                  className="group flex items-start gap-4 rounded-xl p-4 bg-white border border-[#e5e7eb] transition-all duration-200 hover:border-[#3f6bff]/30 hover:shadow-[0_6px_18px_rgba(63,107,255,0.07)]"
-                >
-                  <span className="text-[13px] font-bold bg-clip-text text-transparent mt-0.5 flex-shrink-0 w-6"
-                    style={{ backgroundImage: "linear-gradient(135deg, #3f6bff, #8b5cf6)" }}>
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span className="text-[#526078] text-[15px] leading-[1.65]">{item}</span>
-                </motion.div>
-              </StaggerItem>
-            ))}
-          </Stagger>
-
-          <Stagger className="grid sm:grid-cols-3 gap-3 mb-5" stagger={0.07}>
-            {FIT.slice(2, 5).map((item, i) => (
-              <StaggerItem key={i}>
-                <motion.div
-                  whileHover={{ x: 3 }}
-                  transition={{ duration: 0.18 }}
-                  className="group flex items-start gap-4 rounded-xl p-4 bg-white border border-[#e5e7eb] transition-all duration-200 hover:border-[#3f6bff]/30 hover:shadow-[0_6px_18px_rgba(63,107,255,0.07)]"
-                >
-                  <span className="text-[13px] font-bold bg-clip-text text-transparent mt-0.5 flex-shrink-0 w-6"
-                    style={{ backgroundImage: "linear-gradient(135deg, #3f6bff, #8b5cf6)" }}>
-                    {String(i + 3).padStart(2, "0")}
-                  </span>
-                  <span className="text-[#526078] text-[15px] leading-[1.65]">{item}</span>
-                </motion.div>
-              </StaggerItem>
-            ))}
-          </Stagger>
-
-          <Stagger className="grid sm:grid-cols-2 gap-3 mb-8" stagger={0.07}>
-            {FIT.slice(5, 7).map((item, i) => (
-              <StaggerItem key={i}>
-                <motion.div
-                  whileHover={{ x: 3 }}
-                  transition={{ duration: 0.18 }}
-                  className="group flex items-start gap-4 rounded-xl p-4 bg-white border border-[#e5e7eb] transition-all duration-200 hover:border-[#3f6bff]/30 hover:shadow-[0_6px_18px_rgba(63,107,255,0.07)]"
-                >
-                  <span className="text-[13px] font-bold bg-clip-text text-transparent mt-0.5 flex-shrink-0 w-6"
-                    style={{ backgroundImage: "linear-gradient(135deg, #3f6bff, #8b5cf6)" }}>
-                    {String(i + 6).padStart(2, "0")}
-                  </span>
-                  <span className="text-[#526078] text-[15px] leading-[1.65]">{item}</span>
-                </motion.div>
-              </StaggerItem>
-            ))}
-          </Stagger>
-
-          <AnimateIn delay={0.3}>
-            <div className="rounded-2xl p-6 border border-dashed border-[#9ca3af]/40 bg-white/60 max-w-xl">
-              <p className="text-[12px] font-semibold tracking-[0.1em] uppercase text-[#9ca3af] mb-2">Probably not a fit</p>
-              <p className="text-[14px] text-[#526078] leading-[1.7]">
-                If you mainly need high-volume content, campaign execution, paid media, SDR work, or a full GTM system built from scratch, Advisory is probably not the right fit.
-              </p>
-            </div>
-          </AnimateIn>
-        </div>
-      </section>
+      <AdvisoryFitSection openModal={openModal} />
 
       {/* -- ADVISORY OPTIONS (pricing) -- */}
       <section className="relative py-24 md:py-32 bg-white overflow-hidden">

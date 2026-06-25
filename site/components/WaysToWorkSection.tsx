@@ -308,7 +308,7 @@ export default function WaysToWorkSection() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section className="relative py-24 md:py-32 bg-[#f8f9fc] overflow-hidden">
+    <section className="relative py-24 md:py-32 bg-white overflow-hidden">
       {/* Subtle background detail */}
       <div
         className="absolute inset-0 pointer-events-none opacity-40"

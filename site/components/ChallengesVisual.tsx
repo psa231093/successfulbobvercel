@@ -76,31 +76,39 @@ export default function ChallengesVisual() {
         </p>
       </div>
 
-      {/* Cards */}
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-px bg-white/[0.06] mx-6 mb-6 rounded-xl overflow-hidden">
-        {challenges.map((c) => (
-          <div
-            key={c.title}
-            className="bg-[#0d1a42] px-4 py-5 flex flex-col gap-3"
-          >
-            {/* Icon */}
-            <div
-              className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
-              style={{ background: "rgba(63,107,255,0.15)", color: "#7c9fff" }}
-            >
-              {c.icon}
+      {/* Cards — honeycomb stagger: row of 2 then row of 3, second row offset */}
+      <div className="mx-6 mb-6">
+        {/* Row 1: first 2 cards, offset right by ~20% */}
+        <div className="flex gap-px mb-px" style={{ marginLeft: "10%", marginRight: "10%" }}>
+          {challenges.slice(0, 2).map((c) => (
+            <div key={c.title} className="flex-1 rounded-tl-xl rounded-tr-xl first:rounded-tl-xl last:rounded-tr-xl overflow-hidden bg-white/[0.06]">
+              <div className="bg-[#0d1a42] px-4 py-5 flex flex-col gap-3 h-full">
+                {/* Icon */}
+                <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: "rgba(63,107,255,0.15)", color: "#7c9fff" }}>{c.icon}</div>
+                <p className="text-white font-semibold text-sm leading-tight">{c.title}</p>
+                <p className="text-white/45 text-[11px] leading-relaxed">{c.body}</p>
+                <div className="mt-auto pt-2 border-t border-white/[0.08]">
+                  <p className="text-[9px] font-semibold tracking-widest uppercase text-white/25 mb-1">Real-world example</p>
+                  <p className="text-[11px] italic text-white/50 leading-relaxed">{c.example}</p>
+                </div>
+              </div>
             </div>
-            {/* Title */}
-            <p className="text-white font-semibold text-sm leading-tight">{c.title}</p>
-            {/* Body */}
-            <p className="text-white/45 text-[11px] leading-relaxed">{c.body}</p>
-            {/* Example */}
-            <div className="mt-auto pt-2 border-t border-white/[0.08]">
-              <p className="text-[9px] font-semibold tracking-widest uppercase text-white/25 mb-1">Real-world example</p>
-              <p className="text-[11px] italic text-white/50 leading-relaxed">{c.example}</p>
+          ))}
+        </div>
+        {/* Row 2: last 3 cards, full width */}
+        <div className="flex gap-px rounded-b-xl overflow-hidden bg-white/[0.06]">
+          {challenges.slice(2).map((c) => (
+            <div key={c.title} className="flex-1 bg-[#0d1a42] px-4 py-5 flex flex-col gap-3">
+              <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: "rgba(63,107,255,0.15)", color: "#7c9fff" }}>{c.icon}</div>
+              <p className="text-white font-semibold text-sm leading-tight">{c.title}</p>
+              <p className="text-white/45 text-[11px] leading-relaxed">{c.body}</p>
+              <div className="mt-auto pt-2 border-t border-white/[0.08]">
+                <p className="text-[9px] font-semibold tracking-widest uppercase text-white/25 mb-1">Real-world example</p>
+                <p className="text-[11px] italic text-white/50 leading-relaxed">{c.example}</p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
 
       {/* Footer */}

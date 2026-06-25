@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import MotionProvider from "@/components/MotionProvider";
 import { CalendarModalProvider } from "@/components/CalendarModal";
+import ScrollRestorer from "@/components/ScrollRestorer";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -118,6 +119,7 @@ export default function RootLayout({
         />
         <MotionProvider>
           <CalendarModalProvider>
+            <ScrollRestorer />
             <Navbar />
             <main className="flex-1">{children}</main>
             <Footer />

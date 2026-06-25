@@ -19,13 +19,22 @@ export default function AboutBobSection() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section ref={ref} className="relative bg-white py-24 md:py-32 overflow-hidden">
-      {/* Subtle background detail */}
+    <section ref={ref} className="relative py-24 md:py-32 overflow-hidden" style={{ background: "#061126" }}>
+      {/* Radial glow */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
+          background:
+            "radial-gradient(ellipse 70% 60% at 20% 50%, rgba(63,107,255,0.10) 0%, transparent 70%)",
+        }}
+      />
+      {/* Dot grid */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.018]"
+        style={{
           backgroundImage:
-            "radial-gradient(circle at 10% 60%, rgba(63,107,255,0.03) 0%, transparent 50%)",
+            "radial-gradient(circle, rgba(255,255,255,0.9) 1px, transparent 1px)",
+          backgroundSize: "28px 28px",
         }}
       />
 
@@ -137,7 +146,7 @@ export default function AboutBobSection() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
             >
-              <p className="text-[11px] font-semibold tracking-[0.14em] uppercase text-[#3f6bff] mb-3">
+              <p className="text-[11px] font-semibold tracking-[0.14em] uppercase mb-3" style={{ color: "#7c9fff" }}>
                 About Bob
               </p>
               <div className="w-10 h-[3px] rounded-full bg-gradient-to-r from-[#3f6bff] to-[#8b5cf6] mb-6" />
@@ -150,11 +159,11 @@ export default function AboutBobSection() {
               transition={{ duration: 0.6, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
               className="mb-7"
             >
-              <h2 className="text-4xl md:text-[44px] font-bold text-[#111827] leading-[1.1] tracking-[-0.02em] mb-3">
+              <h2 className="text-4xl md:text-[44px] font-bold text-white leading-[1.1] tracking-[-0.02em] mb-3">
                 Bob Hart
               </h2>
-              <p className="text-[18px] text-[#526078] font-medium leading-snug">
-                I've been in the rooms where this breaks.
+              <p className="text-[18px] font-medium leading-snug" style={{ color: "rgba(255,255,255,0.65)" }}>
+                I&apos;ve been in the rooms where this breaks.
               </p>
             </motion.div>
 
@@ -163,16 +172,17 @@ export default function AboutBobSection() {
               initial={{ opacity: 0, y: 16 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.55, delay: 0.16, ease: [0.22, 1, 0.36, 1] }}
-              className="space-y-4 text-[#526078] text-[15px] md:text-[16px] leading-[1.8] mb-7"
+              className="space-y-4 text-[15px] md:text-[16px] leading-[1.8] mb-7"
+              style={{ color: "rgba(255,255,255,0.55)" }}
             >
               <p>
-                I've worked across Field CTO, solutions engineering, product marketing, partner enablement, executive storytelling, technical sales, and customer-facing strategy.
+                I&apos;ve worked across Field CTO, solutions engineering, product marketing, partner enablement, executive storytelling, technical sales, and customer-facing strategy.
               </p>
               <p>
                 That matters because technical GTM problems rarely live in only one department. The product team may be explaining capabilities. Sales may be trying to create urgency. Partners may be repeating the wrong message.
               </p>
               <p>
-                My advantage isn't that I'm the deepest engineer in every room. It's that I can understand technical products quickly, see where the audience is getting lost, and help turn that into a story real people can use.
+                My advantage isn&apos;t that I&apos;m the deepest engineer in every room. It&apos;s that I can understand technical products quickly, see where the audience is getting lost, and help turn that into a story real people can use.
               </p>
             </motion.div>
 
@@ -191,9 +201,9 @@ export default function AboutBobSection() {
                   transition={{ duration: 0.35, delay: 0.3 + i * 0.05, ease: [0.22, 1, 0.36, 1] }}
                   className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[12px] font-medium"
                   style={{
-                    background: `${d.color}10`,
-                    border: `1px solid ${d.color}22`,
-                    color: d.color,
+                    background: `${d.color}1f`,
+                    border: `1px solid ${d.color}44`,
+                    color: d.color === "#3f6bff" ? "#9db4ff" : "#b69dff",
                   }}
                 >
                   <span className="w-1 h-1 rounded-full" style={{ background: d.color }} />
@@ -213,7 +223,7 @@ export default function AboutBobSection() {
                 className="absolute left-0 top-0 bottom-0 w-[3px] rounded-full"
                 style={{ background: "linear-gradient(to bottom, #8b5cf6, #3f6bff)" }}
               />
-              <p className="text-[15px] md:text-[16px] font-semibold text-[#111827] italic leading-relaxed">
+              <p className="text-[15px] md:text-[16px] font-semibold text-white italic leading-relaxed">
                 The goal is simple: help the right buyers understand why your solution matters before their attention runs out.
               </p>
             </motion.div>

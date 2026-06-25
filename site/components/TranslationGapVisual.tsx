@@ -45,7 +45,7 @@ export default function TranslationGapVisual() {
 
         {/* Left — Product truth */}
         <div className="flex-1 px-5 py-5" style={{ background: "rgba(255,255,255,0.04)", borderRight: "none" }}>
-          <p className="text-[10px] font-bold tracking-[0.14em] uppercase text-white/30 mb-4">Product truth</p>
+          <p className="text-[10px] font-bold tracking-[0.14em] uppercase text-white/30 mb-4">Product<br/>truth</p>
           <ul className="space-y-3">
             {leftItems.map(({ label }) => (
               <li key={label} className="flex items-center justify-between gap-2">
