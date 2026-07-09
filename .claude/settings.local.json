@@ -53,7 +53,14 @@
       "PowerShell(Copy-Item \"C:\\\\Users\\\\pablo\\\\Downloads\\\\Revisions\\\\Revisions\\\\translation gap.png\" \"C:\\\\Users\\\\pablo\\\\OneDrive\\\\Desktop\\\\succesfulbob\\\\site\\\\public\\\\translation-gap.png\")",
       "PowerShell(Copy-Item \"C:\\\\Users\\\\pablo\\\\Downloads\\\\Revisions\\\\Revisions\\\\challenges.png\" \"C:\\\\Users\\\\pablo\\\\OneDrive\\\\Desktop\\\\succesfulbob\\\\site\\\\public\\\\challenges.png\")",
       "PowerShell(Copy-Item \"C:\\\\Users\\\\pablo\\\\Downloads\\\\Revisions\\\\Revisions\\\\Production Ready Creates.png\" \"C:\\\\Users\\\\pablo\\\\OneDrive\\\\Desktop\\\\succesfulbob\\\\site\\\\public\\\\production-ready-creates.png\")",
-      "PowerShell(Copy-Item \"C:\\\\Users\\\\pablo\\\\Downloads\\\\Revisions\\\\Revisions\\\\translating.png\" \"C:\\\\Users\\\\pablo\\\\OneDrive\\\\Desktop\\\\succesfulbob\\\\site\\\\public\\\\translating.png\")"
+      "PowerShell(Copy-Item \"C:\\\\Users\\\\pablo\\\\Downloads\\\\Revisions\\\\Revisions\\\\translating.png\" \"C:\\\\Users\\\\pablo\\\\OneDrive\\\\Desktop\\\\succesfulbob\\\\site\\\\public\\\\translating.png\")",
+      "Bash(node make-doc.js)",
+      "Bash(npm install *)",
+      "Bash(node -e \"require\\('docx'\\)\")",
+      "Bash(npm root *)",
+      "Bash(NODE_PATH=\"C:\\\\Users\\\\pablo\\\\AppData\\\\Roaming\\\\npm\\\\node_modules\" node make-doc.js)",
+      "Bash(gh repo *)",
+      "PowerShell(gh repo view psa231093/successfulbobvercel 2>&1)"
     ]
   }
 }
