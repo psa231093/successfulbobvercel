@@ -18,6 +18,7 @@ import { useCalendarModal } from "@/components/CalendarModal";
 export type InsightPost = {
   slug: string;
   category: string;
+  categorySlug?: string | null;
   title: string;
   excerpt: string;
   publishedAt: string | null;
@@ -182,7 +183,7 @@ function NewsletterForm({ dark }: { dark?: boolean }) {
 
 /* -- Topics Section (auto-advances, click to take over) ----------- */
 
-function TopicsSection({ categories }: { categories: InsightCategory[] }) {
+function TopicsSection({ categories, posts }: { categories: InsightCategory[]; posts: InsightPost[] }) {
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { margin: "-100px" });
   const [active, setActive] = useState(0);
@@ -194,7 +195,11 @@ function TopicsSection({ categories }: { categories: InsightCategory[] }) {
     return () => clearInterval(id);
   }, [inView, paused, categories.length]);
 
+  const postsFor = (c: InsightCategory) =>
+    posts.filter((p) => (p.categorySlug ? p.categorySlug === c.slug : p.category === c.title));
+
   const cat = categories[active];
+  const catPosts = postsFor(cat);
 
   return (
     <section
@@ -233,6 +238,7 @@ function TopicsSection({ categories }: { categories: InsightCategory[] }) {
           <div className="flex md:flex-col gap-2 overflow-x-auto md:overflow-visible pb-1 md:pb-0 -mx-6 px-6 md:mx-0 md:px-0 md:w-64 flex-shrink-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {categories.map((c, i) => {
               const on = i === active;
+              const count = postsFor(c).length;
               return (
                 <button
                   key={c.slug}
@@ -254,11 +260,24 @@ function TopicsSection({ categories }: { categories: InsightCategory[] }) {
                       transition={{ duration: 3.8, ease: "linear" }}
                     />
                   )}
-                  <span
-                    className="text-[13px] md:text-[14px] font-semibold leading-snug transition-colors duration-200 whitespace-nowrap md:whitespace-normal"
-                    style={{ color: on ? "#ffffff" : "rgba(255,255,255,0.40)" }}
-                  >
-                    {c.title}
+                  <span className="flex items-center gap-2 whitespace-nowrap md:whitespace-normal">
+                    <span
+                      className="text-[13px] md:text-[14px] font-semibold leading-snug transition-colors duration-200"
+                      style={{ color: on ? "#ffffff" : "rgba(255,255,255,0.40)" }}
+                    >
+                      {c.title}
+                    </span>
+                    {count > 0 && (
+                      <span
+                        className="flex-shrink-0 min-w-[20px] h-5 px-1.5 rounded-full inline-flex items-center justify-center text-[11px] font-bold tabular-nums"
+                        style={{
+                          background: on ? "rgba(63,107,255,0.35)" : "rgba(255,255,255,0.07)",
+                          color: on ? "#ffffff" : "rgba(255,255,255,0.45)",
+                        }}
+                      >
+                        {count}
+                      </span>
+                    )}
                   </span>
                 </button>
               );
@@ -266,7 +285,11 @@ function TopicsSection({ categories }: { categories: InsightCategory[] }) {
           </div>
 
           {/* Active category panel */}
-          <div className="relative min-h-[280px] flex-1">
+          <div
+            className="relative min-h-[280px] flex-1"
+            onMouseEnter={() => setPaused(true)}
+            onTouchStart={() => setPaused(true)}
+          >
             <AnimatePresence mode="wait">
               <motion.div
                 key={cat.slug}
@@ -295,34 +318,60 @@ function TopicsSection({ categories }: { categories: InsightCategory[] }) {
                   </p>
                 )}
 
-                {cat.topics && cat.topics.length > 0 && (
-                  <div className="flex flex-wrap gap-2 mb-8">
-                    {cat.topics.map((t) => (
-                      <span
-                        key={t}
-                        className="px-3 py-1.5 rounded-lg text-[12px] font-medium leading-snug"
-                        style={{
-                          background: "rgba(63,107,255,0.10)",
-                          border: "1px solid rgba(63,107,255,0.25)",
-                          color: "rgba(255,255,255,0.65)",
-                        }}
-                      >
-                        {t}
-                      </span>
-                    ))}
+                {catPosts.length > 0 ? (
+                  <div>
+                    <p className="text-[11px] font-semibold tracking-[0.14em] uppercase mb-3" style={{ color: "#7c9fff" }}>
+                      {catPosts.length} {catPosts.length === 1 ? "article" : "articles"}
+                    </p>
+                    <div className="space-y-2 max-h-[340px] overflow-y-auto pr-1 -mr-1 [scrollbar-width:thin]">
+                      {catPosts.map((p) => (
+                        <Link
+                          key={p.slug}
+                          href={`/insights/${p.slug}`}
+                          className="group flex items-center justify-between gap-4 rounded-xl px-4 py-3.5 bg-white/[0.03] border border-white/[0.07] hover:bg-[#3f6bff]/10 hover:border-[#3f6bff]/30 transition-colors duration-200"
+                        >
+                          <span className="min-w-0">
+                            <span className="block text-[14px] md:text-[15px] font-semibold text-white/85 group-hover:text-white leading-snug transition-colors duration-200">
+                              {p.title}
+                            </span>
+                            {p.publishedAt && (
+                              <span className="block mt-1 text-[12px] text-white/35">{formatDate(p.publishedAt)}</span>
+                            )}
+                          </span>
+                          <svg
+                            className="w-4 h-4 flex-shrink-0 text-[#7c9fff] group-hover:translate-x-0.5 transition-transform duration-200"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                          </svg>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                ) : (
+                  <div>
+                    {cat.topics && cat.topics.length > 0 && (
+                      <div className="flex flex-wrap gap-2 mb-6">
+                        {cat.topics.map((t) => (
+                          <span
+                            key={t}
+                            className="px-3 py-1.5 rounded-lg text-[12px] font-medium leading-snug"
+                            style={{
+                              background: "rgba(63,107,255,0.10)",
+                              border: "1px solid rgba(63,107,255,0.25)",
+                              color: "rgba(255,255,255,0.65)",
+                            }}
+                          >
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                    <p className="text-[13px] font-medium" style={{ color: "rgba(255,255,255,0.40)" }}>
+                      Articles in this category are coming soon.
+                    </p>
                   </div>
                 )}
-
-                <Link
-                  href={`/insights#${cat.slug}`}
-                  className="inline-flex items-center gap-2 text-[13px] font-semibold transition-colors duration-200"
-                  style={{ color: "#7c9fff" }}
-                >
-                  Browse {cat.title} articles
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </Link>
               </motion.div>
             </AnimatePresence>
           </div>
@@ -501,7 +550,7 @@ export default function InsightsPage({
       </section>
 
       {/* -- WHAT I WRITE ABOUT (categories) -- */}
-      <TopicsSection categories={displayCategories} />
+      <TopicsSection categories={displayCategories} posts={displayPosts} />
 
       {/* -- NEWSLETTER -- dark -- */}
       <section id="subscribe" className="relative py-24 md:py-28 bg-[#061126] text-white overflow-hidden scroll-mt-20">
