@@ -24,6 +24,17 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        // The pre-relaunch site had its articles under /blog; Google still
+        // indexes those URLs. Send them to the Insights section for good.
+        source: "/blog/:path*",
+        destination: "/insights",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {
