@@ -12,7 +12,7 @@ All five supplied portraits are 640 × 640 WebP images in `site/public/testimoni
 
 ## Testimonials in Sanity
 
-The new Homepage Testimonials singleton contains an ordered array of names, roles, quotes, and portrait images. Drag to reorder. Emptying the list hides the section. The carousel has previous/next buttons, person selectors, keyboard-operable controls, and horizontal touch gestures. It advances every seven seconds with a fading slide transition and a progress bar. Autoplay pauses on hover, keyboard focus, offscreen, or in a hidden tab. A Play/Pause control is available; reduced-motion users start paused. All slides remain in the HTML; inactive slides are hidden from assistive technology.
+The new Homepage Testimonials singleton contains an ordered array of names, roles, quotes, and portrait images. Drag to reorder. Emptying the list hides the section. The carousel has previous/next buttons, person selectors, keyboard-operable controls, and horizontal touch gestures. It advances every seven seconds with a fading slide transition and a progress bar. Autoplay pauses on hover, keyboard focus, offscreen, or in a hidden tab. There is no playback button; reduced-motion users browse manually. All slides remain in the HTML; inactive slides are hidden from assistive technology.
 
 Until the singleton exists, the local supplied quotes and optimized portraits render. Once published, the CMS list fully replaces that initial content. A failed CMS request hides testimonials rather than restoring possibly removed endorsements.
 

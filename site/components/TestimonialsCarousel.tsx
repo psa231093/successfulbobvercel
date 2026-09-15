@@ -11,7 +11,6 @@ export default function TestimonialsCarousel({
   items: Testimonial[];
 }) {
   const [index, setIndex] = useState(0);
-  const [paused, setPaused] = useState(false);
   const [hovered, setHovered] = useState(false);
   const [focused, setFocused] = useState(false);
   const [hidden, setHidden] = useState(false);
@@ -20,15 +19,13 @@ export default function TestimonialsCarousel({
   const section = useRef<HTMLElement>(null);
   const inView = useInView(section, { amount: 0.2 });
   const reducedMotion = useReducedMotion();
-  const [explicitPlay, setExplicitPlay] = useState(false);
   const running =
     items.length > 1 &&
     inView &&
-    !paused &&
     !hovered &&
     !focused &&
     !hidden &&
-    (!reducedMotion || explicitPlay);
+    !reducedMotion;
 
   useEffect(() => {
     const update = () => setHidden(document.hidden);
@@ -197,30 +194,10 @@ export default function TestimonialsCarousel({
         )}
         {items.length > 1 && (
           <div className="max-w-sm mx-auto mt-2">
-            <div className="flex items-center justify-between gap-4 text-xs text-white/65 mb-2">
+            <div className="text-center text-xs text-white/65 mb-3">
               <span>
                 {active + 1} / {items.length}
               </span>
-              <button
-                type="button"
-                className="min-h-11 px-3 rounded-lg text-white hover:bg-white/10"
-                aria-label={
-                  paused || (reducedMotion && !explicitPlay)
-                    ? "Resume slideshow"
-                    : "Pause slideshow"
-                }
-                onClick={() => {
-                  if (paused || (reducedMotion && !explicitPlay)) {
-                    setPaused(false);
-                    setExplicitPlay(true);
-                    setFocused(false);
-                  } else setPaused(true);
-                }}
-              >
-                {paused || (reducedMotion && !explicitPlay)
-                  ? "Resume slideshow"
-                  : "Pause slideshow"}
-              </button>
             </div>
             <div
               aria-hidden="true"
