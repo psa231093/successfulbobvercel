@@ -21,11 +21,11 @@ const SITE_URL = "https://successfulbob.com";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Successfulbob LLC | Go to Market Strategy for Technical Startups",
+    default: "Successfulbob LLC | GTM Help for Technical Companies",
     template: "%s | Successfulbob",
   },
   description:
-    "Successfulbob LLC helps technical startups turn product depth into clear market stories, stronger demos, partner messaging, and go to market strategy the team can repeat.",
+    "Successfulbob helps technical companies diagnose GTM problems and move forward with senior counsel, hands-on support, and fractional leadership.",
   keywords: [
     "go to market strategy for startups",
     "technical product marketing",
@@ -44,13 +44,13 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: SITE_URL,
     siteName: "Successfulbob LLC",
-    title: "Successfulbob LLC | Go to Market Strategy for Technical Startups",
+    title: "Successfulbob LLC | GTM Help for Technical Companies",
     description:
       "Turn product depth into a market story buyers, sales teams, partners, and executives can understand, trust, and repeat.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Successfulbob LLC | Go to Market Strategy for Technical Startups",
+    title: "Successfulbob LLC | GTM Help for Technical Companies",
     description:
       "Turn product depth into a market story buyers, sales teams, partners, and executives can understand, trust, and repeat.",
   },

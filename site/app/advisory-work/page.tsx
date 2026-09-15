@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import AdvisoryWork from "./AdvisoryWork";
 
 export const metadata: Metadata = {
-  title: { absolute: "Advisory Work | Go to Market Consultant for Technical Startups" },
+  title: { absolute: "GTM Support | Go to Market Consultant for Technical Startups" },
   description:
-    "Successfulbob advisory work gives technical startups access to Bob Hart's guidance on technical GTM, messaging, demos, partner strategy, executive narrative, and go to market decisions.",
+    "Senior GTM counsel, hands-on project ownership, and fractional GTM leadership for technical companies.",
   alternates: { canonical: "/advisory-work" },
   openGraph: {
-    title: "Advisory Work | Go to Market Consultant for Technical Startups",
+    title: "GTM Support | Go to Market Consultant for Technical Startups",
     description:
-      "Senior technical GTM advice without a full buildout: messaging, demos, partner strategy, executive narrative, and GTM decisions.",
+      "GTM Coach, GTM Partner, and Fractional GTM Leadership: the level of support that fits the problem.",
     url: "/advisory-work",
     images: ["/opengraph-image"],
   },

@@ -8,7 +8,7 @@ import { parseBody } from "next-sanity/webhook";
    Configure in Sanity under API / Webhooks:
      URL      https://successfulbob.com/api/revalidate
      Trigger  create, update, delete
-     Filter   _type == "workshop" || _type == "workshopSettings"
+     Filter   _type in ["workshop", "workshopSettings", "homepageTestimonials"]
      Secret   the same value as SANITY_REVALIDATE_SECRET
 
    revalidatePath rather than revalidateTag: the cached artifact here is the
@@ -41,6 +41,10 @@ export async function POST(req: NextRequest) {
   }
 
   const type = parsed.body?._type;
+  if (type === "homepageTestimonials") {
+    revalidatePath("/");
+    return NextResponse.json({ revalidated: true, paths: ["/"], type });
+  }
   if (type !== "workshop" && type !== "workshopSettings") {
     // Not an error: the webhook filter may be broader than this route needs.
     return NextResponse.json({ revalidated: false, reason: `Ignored type: ${type ?? "unknown"}` });

@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { workshopsEnabled, workshopsListed } from "@/lib/siteVisibility";
 import { getActiveWorkshop, buildWorkshopView } from "@/lib/workshop";
 import { buildWorkshopJsonLd } from "@/lib/workshopJsonLd";
 import WorkshopsPage from "./WorkshopsPage";
@@ -7,6 +9,12 @@ import WorkshopPlaceholder from "./WorkshopPlaceholder";
 export const revalidate = 3600;
 
 export async function generateMetadata(): Promise<Metadata> {
+  if (!workshopsEnabled) {
+    return {
+      title: { absolute: "Page not found | Successfulbob" },
+      robots: { index: false, follow: true },
+    };
+  }
   const w = await getActiveWorkshop();
 
   if (!w) {
@@ -26,7 +34,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: { absolute: title },
     description,
     alternates: { canonical: "/workshops" },
-    robots: w.noIndex ? { index: false, follow: true } : { index: true, follow: true },
+    robots: w.noIndex || !workshopsListed ? { index: false, follow: true } : { index: true, follow: true },
     openGraph: {
       title,
       description,
@@ -39,6 +47,9 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function WorkshopsRoute() {
+  // Check before fetching CMS content: a direct link must not expose the old
+  // registration buttons, workshop data, or Event structured data.
+  if (!workshopsEnabled) notFound();
   const workshop = await getActiveWorkshop();
 
   // No CMS, or nothing selected in Workshop Settings. Renders a real page

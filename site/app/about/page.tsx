@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "About Bob Hart | Founder of Successfulbob LLC",
     description:
-      "Technical GTM advisor with ~20 years across Field CTO work, product marketing, partner enablement, and executive narrative.",
+      "Technical GTM advisor with 20+ years across Field CTO work, product marketing, partner enablement, and executive narrative.",
     url: "/about",
     images: ["/opengraph-image"],
   },

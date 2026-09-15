@@ -1,0 +1,52 @@
+{
+  "hero": {
+    "eyebrow": "ABOUT BOB HART",
+    "title": "20+ years turning complex technology into clearer GTM decisions.",
+    "paragraphs": [
+      "I’ve worked across Field CTO, solutions engineering, product marketing, channel leadership, technical sales, and executive communication.",
+      "That range matters because GTM problems rarely belong to one function. I’ve seen them from Product, Sales, partners, customers, and the executive room."
+    ],
+    "primary": "Bring Me Your Concern",
+    "secondary": "Email Bob"
+  },
+  "background": {
+    "eyebrow": "BACKGROUND",
+    "title": "Technical enough to understand the product. Experienced enough to see the business problem.",
+    "paragraphs": [
+      "My career has spanned enterprise infrastructure, cloud, IT operations, data, cybersecurity, storage, application modernization, and complex B2B software.",
+      "I’ve held roles including Field CTO, VP of Channel, Principal Solutions Engineer, Product Marketing Manager, and technical GTM advisor."
+    ],
+    "checklist": [
+      "20+ years in enterprise technology",
+      "Harvard Master’s in Information Management Systems",
+      "MIT Executive Certificate in Innovation & Strategy",
+      "Executive, analyst, customer, partner, and field-facing experience",
+      "GTM work across companies including Dell/EMC, Panzura, Device42, and Freshworks",
+      "Part of four acquisition and M&A transitions across enterprise technology companies"
+    ]
+  },
+  "why": {
+    "eyebrow": "WHY IT MATTERS",
+    "title": "GTM problems look different depending on where you sit.",
+    "paragraphs": [
+      "Product sees capabilities. Sales sees deals. Marketing sees the story. Partners see what they can repeat. Executives see risk, growth, and priorities.",
+      "My advantage is that I’ve worked across those handoffs. That makes it easier to spot where the real problem is instead of treating every symptom like a messaging issue, a sales issue, or a partner issue."
+    ]
+  },
+  "human": {
+    "eyebrow": "A LITTLE MORE HUMAN",
+    "title": "Serious work can still be human.",
+    "paragraphs": [
+      "I’m a husband, father of three, lifelong technology nerd, and someone who still gets excited when a company has built something genuinely useful.",
+      "I like direct conversations, practical advice, and working with people who care about solving the real problem instead of performing consultant theater."
+    ]
+  },
+  "close": {
+    "title": "Have a GTM problem that needs a sharper look?",
+    "paragraphs": [
+      "Bring the concern. We can talk through what’s happening and figure out whether Successfulbob can help."
+    ],
+    "primary": "Bring Me Your Concern",
+    "secondary": "Email Bob Directly"
+  }
+}

@@ -4,6 +4,7 @@ import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemaTypes'
 
 const SINGLETON = 'workshopSettings'
+const SINGLETONS = [SINGLETON, 'homepageTestimonials']
 
 export default defineConfig({
   name: 'default',
@@ -18,6 +19,11 @@ export default defineConfig({
         S.list()
           .title('Content')
           .items([
+            S.listItem()
+              .title('Homepage Testimonials')
+              .id('homepageTestimonials')
+              .child(S.document().schemaType('homepageTestimonials').documentId('homepageTestimonials').title('Homepage Testimonials')),
+            S.divider(),
             // Pinned to one document id so a second copy can never exist.
             S.listItem()
               .title('Workshop Settings')
@@ -39,7 +45,7 @@ export default defineConfig({
   // then read an arbitrary copy with no visible cause.
   document: {
     actions: (prev, {schemaType}) =>
-      schemaType === SINGLETON
+      SINGLETONS.includes(schemaType)
         ? prev.filter(({action}) => action !== 'duplicate' && action !== 'delete' && action !== 'unpublish')
         : prev,
   },
@@ -48,6 +54,6 @@ export default defineConfig({
     types: schemaTypes,
     // workshopSession is an object used inside workshop; it should never appear
     // as a top-level "create new" option.
-    templates: (prev) => prev.filter((t) => t.schemaType !== 'workshopSession' && t.schemaType !== SINGLETON),
+    templates: (prev) => prev.filter((t) => t.schemaType !== 'workshopSession' && !SINGLETONS.includes(t.schemaType)),
   },
 })

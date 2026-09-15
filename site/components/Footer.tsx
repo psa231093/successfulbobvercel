@@ -2,12 +2,13 @@
 
 import Link from "next/link";
 import Logo from "@/components/Logo";
+import { workshopsListed } from "@/lib/siteVisibility";
 import { useCalendarModal } from "@/components/CalendarModal";
 
 const explore = [
   { href: "/production-ready", label: "Production Ready" },
-  { href: "/advisory-work", label: "Advisory Work" },
-  { href: "/workshops", label: "Workshops" },
+  { href: "/advisory-work", label: "GTM Support" },
+  ...(workshopsListed ? [{ href: "/workshops", label: "Workshops" }] : []),
   { href: "/insights", label: "Insights" },
 ];
 
@@ -105,7 +106,7 @@ export default function Footer() {
 
         <div className="pt-6 border-t border-white/[0.07] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/30">
           <p>© {new Date().getFullYear()} Successfulbob LLC. All rights reserved.</p>
-          <p className="text-white/25">Go to market strategy for technical startups.</p>
+          <p className="text-white/25">GTM help for technical companies.</p>
         </div>
       </div>
     </footer>

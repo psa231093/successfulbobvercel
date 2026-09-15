@@ -1,0 +1,137 @@
+{
+  "hero": {
+    "eyebrow": "THE FLAGSHIP FRAMEWORK",
+    "title": "Make your GTM as production-ready as your product.",
+    "paragraphs": [
+      "Your product may be proven. Your GTM still has to work across messaging, demos, sales, partners, executives, and the field.",
+      "Production Ready helps identify where the system is breaking, build what’s missing, and make it repeatable without depending on the founder to carry it."
+    ],
+    "primary": "Start with the Assessment",
+    "secondary": "Schedule a 30-Minute Fit Call",
+    "supporting": "The Production Ready Assessment is a $10K diagnostic designed to identify the highest-impact gaps and the right path forward."
+  },
+  "means": {
+    "eyebrow": "WHAT PRODUCTION READY MEANS",
+    "title": "Production ready should not stop at the product.",
+    "paragraphs": [
+      "A strong product still needs a GTM system people can understand, use, and repeat.",
+      "That means the story is clear, the demo supports the value, sales knows what to lead with, partners can carry the message, and executives understand why it matters.",
+      "Production Ready helps turn those pieces into one working system instead of a collection of disconnected efforts."
+    ],
+    "checklistHeading": "QUESTIONS TO ASK BEFORE YOU SCALE",
+    "checklist": [
+      "Can someone besides the founder explain the value clearly?",
+      "Does the demo lead with buyer value instead of features?",
+      "Can Sales explain what matters without turning it into a product tour?",
+      "Can partners understand and repeat the story?",
+      "Can executives quickly see why this matters now?",
+      "Is the field working from the same core message?"
+    ]
+  },
+  "creates": {
+    "eyebrow": "WHAT PRODUCTION READY CREATES",
+    "title": "The GTM system behind the product.",
+    "paragraphs": [
+      "Production Ready turns scattered GTM work into a connected system your team can use, improve, and repeat.",
+      "It gives the company a clearer way to explain the product, guide buyer conversations, enable the field, support partners, and carry the story into the market."
+    ],
+    "outputs": [
+      {
+        "title": "Product Truth and value mapping",
+        "body": "A clear view of what the product does, who it matters to, and why."
+      },
+      {
+        "title": "Executive and field messaging",
+        "body": "A repeatable story for buyers, sellers, partners, and executives."
+      },
+      {
+        "title": "Demo and conversation architecture",
+        "body": "A structure that keeps technical depth connected to buyer value."
+      },
+      {
+        "title": "Partner enablement",
+        "body": "A clearer way for partners to understand, trust, and repeat the message."
+      },
+      {
+        "title": "Market and event readiness",
+        "body": "Guidance for launches, events, webinars, briefings, and field conversations."
+      },
+      {
+        "title": "A repeatable GTM operating model",
+        "body": "A system the team can keep using without depending on one person to translate everything."
+      }
+    ]
+  },
+  "paths": {
+    "eyebrow": "ENGAGEMENT PATHS",
+    "title": "Choose the level of Production Ready support you need.",
+    "items": [
+      {
+        "title": "Production Ready Assessment",
+        "body": "A focused diagnostic to identify the biggest GTM gaps, clarify priorities, and define the right path forward.",
+        "price": "$10,000 fixed"
+      },
+      {
+        "title": "Production Ready",
+        "body": "Build the core GTM system your team needs to explain, sell, demonstrate, and repeat the product more effectively.",
+        "price": "Starting at $95,000"
+      },
+      {
+        "title": "Production Ready Complete",
+        "body": "A broader engagement for teams that want help building the system, rolling it out, and driving adoption across the field, partners, and market.",
+        "price": "Starting at $195,000"
+      }
+    ]
+  },
+  "assessment": {
+    "eyebrow": "START WITH THE ASSESSMENT",
+    "title": "Find the real GTM gaps before you start fixing them.",
+    "paragraphs": [
+      "The Production Ready Assessment gives you a clear view of where your GTM system is working, where it is breaking, and which gaps matter most.",
+      "Successfulbob reviews the core areas behind your go-to-market motion, scores the current state, and turns the findings into a practical set of priorities."
+    ],
+    "checklist": [
+      "A structured review across the Production Ready framework",
+      "Clear identification of the highest-impact GTM gaps",
+      "An executive scorecard with priorities and risk areas",
+      "Specific recommendations for what to fix first",
+      "A clear path into deeper Production Ready work if needed"
+    ],
+    "price": "$10,000 fixed",
+    "cta": "Schedule an Assessment Call"
+  },
+  "outcomes": {
+    "eyebrow": "EXPECTED OUTCOMES",
+    "title": "What should be different when the work is done.",
+    "items": [
+      {
+        "title": "Clearer market story",
+        "body": "Buyers understand what you do, why it matters, and why they should care now."
+      },
+      {
+        "title": "More confident field execution",
+        "body": "Sales and technical teams know what to lead with and how to adapt the story."
+      },
+      {
+        "title": "Better partner repeatability",
+        "body": "Partners can understand, explain, and support the value without constant hand-holding."
+      },
+      {
+        "title": "Stronger executive conversations",
+        "body": "Technical depth supports the business case instead of taking over the conversation."
+      },
+      {
+        "title": "Less dependence on the founder",
+        "body": "The company can carry the story consistently without one person translating everything."
+      }
+    ]
+  },
+  "close": {
+    "title": "Ready to see where your GTM is getting stuck?",
+    "paragraphs": [
+      "Start with a short conversation about what you’re seeing. We’ll figure out whether the Production Ready Assessment is the right next step."
+    ],
+    "primary": "Schedule an Assessment Call",
+    "secondary": "Email Bob Directly"
+  }
+}

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Contact Bob Hart | Successfulbob LLC",
     description:
-      "Schedule a 30-minute fit call or email bob@successfulbob.com to discuss Production Ready, Advisory Work, speaking, or interviews.",
+      "Schedule a 30-minute fit call or email bob@successfulbob.com to discuss Production Ready, GTM Support, speaking, or interviews.",
     url: "/contact",
     images: ["/opengraph-image"],
   },

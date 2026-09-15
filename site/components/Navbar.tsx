@@ -3,14 +3,15 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Logo from "@/components/Logo";
+import { workshopsListed } from "@/lib/siteVisibility";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 import { useCalendarModal } from "@/components/CalendarModal";
 
 const links = [
   { href: "/production-ready", label: "Production Ready" },
-  { href: "/advisory-work", label: "Advisory Work" },
-  { href: "/workshops", label: "Workshops" },
+  { href: "/advisory-work", label: "GTM Support" },
+  ...(workshopsListed ? [{ href: "/workshops", label: "Workshops" }] : []),
   { href: "/insights", label: "Insights" },
   { href: "/about", label: "About Bob" },
   { href: "/contact", label: "Contact" },

@@ -1,0 +1,125 @@
+{
+  "hero": {
+    "eyebrow": "GTM SUPPORT",
+    "title": "Get the level of GTM help that fits the problem.",
+    "paragraphs": [
+      "Sometimes you need senior counsel on a decision. Sometimes you need help moving a defined GTM initiative forward. Sometimes you need experienced leadership embedded across the business.",
+      "Successfulbob gives technical companies a practical way to get the level of support they actually need."
+    ],
+    "primary": "Bring Me Your Concern",
+    "secondary": "See the Engagement Options",
+    "supporting": "From tactical decision support to fractional GTM leadership."
+  },
+  "when": {
+    "eyebrow": "WHEN GTM SUPPORT MAKES SENSE",
+    "title": "When the problem is real, but the right next move is not obvious.",
+    "paragraphs": [
+      "Maybe the team is stuck on a decision. Maybe a launch, partner motion, demo, or messaging problem needs more attention than anyone internally can give it. Maybe several GTM issues are connected and no single function has the full picture.",
+      "That is usually where outside help is most useful: when the company knows something needs to improve, but the level of support required is not yet clear."
+    ],
+    "checklist": [
+      "You need to pressure-test an important GTM decision before committing more time or budget.",
+      "A defined initiative needs senior attention and someone accountable for moving it forward.",
+      "Product, Sales, Marketing, partners, or the field are working from different assumptions.",
+      "The issue crosses functions and is difficult to solve from inside one team.",
+      "You need experienced GTM leadership, but not necessarily another full-time executive."
+    ]
+  },
+  "levels": {
+    "eyebrow": "ENGAGEMENT LEVELS",
+    "title": "Choose the level of support the problem actually needs.",
+    "items": [
+      {
+        "title": "GTM Coach",
+        "price": "$2,500/month",
+        "paragraphs": [
+          "One standing 60-minute working session each week. Bring whatever GTM problem matters most that week, and invite whoever needs to be in the room.",
+          "Successfulbob provides senior GTM counsel to help diagnose the issue, pressure-test decisions, work through options, and leave the team with a clear next move. Your team keeps ownership of execution."
+        ],
+        "fit": "Best for: founders and GTM leaders who want experienced help making better decisions without adding another executive or large consulting engagement.",
+        "id": "gtm-coach"
+      },
+      {
+        "title": "GTM Partner",
+        "price": "Starting at $5,000/month",
+        "paragraphs": [
+          "A more hands-on engagement built around a defined GTM problem or workstream.",
+          "Successfulbob works alongside your team to shape the approach, make decisions, and help execute the work through completion. Instead of just advising on what should happen, we take responsibility for helping move a specific initiative forward."
+        ],
+        "fit": "Best for: messaging, partner enablement, demo improvement, launch readiness, executive narrative, qualification, or another focused initiative that needs real ownership.",
+        "id": "gtm-partner"
+      },
+      {
+        "title": "Fractional GTM Leadership",
+        "price": "Starting at $20,000/month",
+        "paragraphs": [
+          "Ongoing senior GTM leadership embedded across the business.",
+          "Successfulbob works across Product, Sales, Marketing, partners, and the field to help set priorities, lead multiple initiatives, make decisions, and keep GTM execution moving."
+        ],
+        "fit": "Best for: companies that need experienced GTM leadership and meaningful ownership across several priorities, but do not need or are not ready to add another full-time executive.",
+        "id": "fractional-gtm-leadership"
+      }
+    ]
+  },
+  "topics": {
+    "eyebrow": "WHAT WE CAN WORK ON",
+    "title": "Bring the GTM problem that needs attention.",
+    "items": [
+      "Messaging and positioning",
+      "Demo and conversation strategy",
+      "Partner enablement",
+      "Launch readiness",
+      "Executive narrative",
+      "Sales enablement",
+      "GTM diagnosis and prioritization",
+      "Cross-functional Product, Sales, Marketing, and field alignment"
+    ]
+  },
+  "faq": {
+    "eyebrow": "FREQUENTLY ASKED QUESTIONS",
+    "headline": "A few things to know before we work together.",
+    "faqs": [
+      {
+        "question": "What kinds of GTM problems can Successfulbob help with?",
+        "answer": "Anything that sits across messaging, positioning, demos, partner enablement, launches, executive narrative, sales enablement, qualification, or cross-functional GTM execution. The common thread is that something important is stuck and the right next move is not obvious."
+      },
+      {
+        "question": "How does GTM Coach work?",
+        "answer": "You get one standing 60-minute working session each week. Bring whatever GTM issue matters most that week, invite whoever needs to be in the room, and use the time to work through the problem and leave with a clearer next move."
+      },
+      {
+        "question": "Who can join a GTM Coach session?",
+        "answer": "Anyone relevant to the problem. Founders, Sales, Product, Marketing, SEs, partner leaders, or anyone else who needs to help make the decision or move the work forward."
+      },
+      {
+        "question": "What’s the difference between GTM Coach and GTM Partner?",
+        "answer": "With GTM Coach, your team keeps ownership and execution. With GTM Partner, Successfulbob takes on a defined problem or workstream alongside your team and helps move it through execution."
+      },
+      {
+        "question": "When does Fractional GTM Leadership make more sense?",
+        "answer": "When the need is broader than one initiative and you need experienced GTM leadership across multiple priorities, teams, or functions. It is designed for companies that need senior ownership without adding another full-time executive."
+      },
+      {
+        "question": "Do you only advise, or do you execute too?",
+        "answer": "It depends on the engagement. GTM Coach is focused on counsel and decision support. GTM Partner and Fractional GTM Leadership include much more hands-on ownership and execution."
+      },
+      {
+        "question": "Can we move between engagement levels?",
+        "answer": "Yes. A coaching relationship can grow into project ownership or fractional leadership if the need expands, and larger engagements can scale back when the work becomes more focused."
+      },
+      {
+        "question": "What if we’re not sure which level of support we need?",
+        "answer": "That is completely fine. Bring the concern. We can talk through what is happening and figure out whether you need counsel, ownership of a specific initiative, or broader GTM leadership."
+      }
+    ]
+  },
+  "close": {
+    "title": "Bring us the GTM problem that needs attention.",
+    "paragraphs": [
+      "You do not need to know which engagement level fits before reaching out.",
+      "Tell us what is stuck, what you are trying to accomplish, and where the friction is showing up. We can help figure out whether you need tactical counsel, ownership of a defined initiative, or broader fractional GTM leadership."
+    ],
+    "primary": "Bring Us Your Concern",
+    "secondary": "Email Bob Directly"
+  }
+}

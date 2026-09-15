@@ -1,0 +1,37 @@
+[
+  {
+    "_key": "jeff-sharon",
+    "quote": "I’ve worked with Bob for more than a year, and what I value most is that he doesn’t just give advice from the sidelines. He understands how product, sales, partners, and messaging all affect each other, and he helps turn that into practical decisions we can actually use.",
+    "name": "Jeff Sharon",
+    "role": "Chief Dot Connector, Cenergi",
+    "imageUrl": "/testimonials/jeff-sharon.webp"
+  },
+  {
+    "_key": "chris-weedman",
+    "quote": "As a founder, sometimes I don’t need another consultant or another project. I need a senior operator I trust who I can bring a problem to, kick it around with, and leave knowing what I’m going to do next. Robert has been that for me. Every conversation we’ve had has created traction.",
+    "name": "Christopher M. Weedman",
+    "role": "Founder & Lead Engineer, Evo Engineering",
+    "imageUrl": "/testimonials/chris-weedman.webp"
+  },
+  {
+    "_key": "nathan-george",
+    "quote": "What I like about Bob’s approach to partners is that it’s grounded in how the relationship actually works. He understands that enablement, trust, positioning, and shared value all matter if you want a partner to do more than just put your logo on a website.",
+    "name": "Nathan George",
+    "role": "President, Flycast Partners",
+    "imageUrl": "/testimonials/nathan-george.webp"
+  },
+  {
+    "_key": "liz-collins",
+    "quote": "Bob was someone I could trust with the product story in high-stakes settings. Whether it was field messaging, national events, or analyst conversations, he understood how to translate technical depth into a clear message that landed with the audience.",
+    "name": "Liz Collins",
+    "role": "Director of PMM Strategy, Freshworks",
+    "imageUrl": "/testimonials/liz-collins.webp"
+  },
+  {
+    "_key": "dan-waldschmidt",
+    "quote": "Robert has an exceptional ability to translate complex technology into clear, compelling narratives for technical stakeholders, executives, and end users. That skill helped us engage a wider range of audiences and contributed directly to Panzura’s growth.",
+    "name": "Dan Waldschmidt",
+    "role": "Former Chief Revenue Officer, Panzura",
+    "imageUrl": "/testimonials/dan-waldschmidt.webp"
+  }
+]

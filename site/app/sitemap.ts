@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { workshopsListed } from "@/lib/siteVisibility";
 import { sanityClient, isSanityConfigured } from "@/lib/sanity";
 import { allPostSlugsQuery, activeWorkshopExistsQuery } from "@/lib/queries";
 
@@ -34,7 +35,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Only advertise /workshops when a workshop is actually selected. Without a
   // live one the route renders a noindex placeholder, which should not be in
   // the sitemap. Weekly, because seat status changes during a selling window.
-  const workshopEntries: MetadataRoute.Sitemap = hasWorkshop
+  const workshopEntries: MetadataRoute.Sitemap = hasWorkshop && workshopsListed
     ? [{ url: `${SITE_URL}/workshops`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.9 }]
     : [];
 

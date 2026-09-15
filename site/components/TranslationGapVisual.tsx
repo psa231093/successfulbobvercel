@@ -20,24 +20,8 @@ export default function TranslationGapVisual() {
       className="w-full rounded-2xl overflow-hidden"
       style={{ background: "#0b1433", border: "1px solid rgba(63,107,255,0.2)" }}
     >
-      {/* Header */}
       <div className="text-center px-8 pt-8 pb-6">
-        <p className="text-white text-xl md:text-2xl font-bold leading-snug">
-          The product is strong.
-          <br />
-          <span
-            style={{
-              background: "linear-gradient(90deg, #3f6bff, #8b5cf6)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-            }}
-          >
-            The story is not carrying.
-          </span>
-        </p>
-        <p className="text-white/40 text-xs mt-2 tracking-wide">
-          Technical depth does not automatically become buyer understanding.
-        </p>
+        <p className="text-white text-xl md:text-2xl font-bold leading-snug">Each team sees its own slice.</p>
       </div>
 
       {/* Diagram */}
@@ -114,22 +98,6 @@ export default function TranslationGapVisual() {
         </div>
       </div>
 
-      {/* Footer message */}
-      <div
-        className="mx-6 mb-6 px-5 py-3.5 rounded-xl flex items-center gap-3"
-        style={{ background: "rgba(239,68,68,0.07)", border: "1px solid rgba(239,68,68,0.15)" }}
-      >
-        <svg className="flex-shrink-0" width="16" height="16" viewBox="0 0 16 16" fill="none">
-          <path d="M8 2L14 13H2L8 2Z" stroke="rgba(248,113,113,0.8)" strokeWidth="1.5" strokeLinejoin="round" fill="none" />
-          <path d="M8 6V9" stroke="rgba(248,113,113,0.8)" strokeWidth="1.5" strokeLinecap="round" />
-          <circle cx="8" cy="11" r="0.75" fill="rgba(248,113,113,0.8)" />
-        </svg>
-        <p className="text-white/50 text-[11px] leading-snug">
-          The gap isn&apos;t a product problem.{" "}
-          <span className="text-white/75 font-semibold">It&apos;s a story problem.</span>{" "}
-          Fix the translation, and the market can finally see what you built.
-        </p>
-      </div>
     </div>
   );
 }

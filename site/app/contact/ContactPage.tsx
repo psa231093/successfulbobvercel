@@ -25,7 +25,7 @@ const PATHS = [
     external: false,
   },
   {
-    title: "Advisory Work",
+    title: "GTM Support",
     body: "Choose this if you need ongoing senior guidance, a sharper outside view, or help thinking through technical GTM, messaging, demos, partner strategy, executive narrative, or field readiness. Best when you need judgment and decision support, not a full buildout.",
     cta: "Discuss Advisory Fit",
     href: "/advisory-work",
@@ -54,7 +54,7 @@ const INCLUDE_DETAILS = [
   "Company stage",
   "Target buyer",
   "Current GTM challenge",
-  "Production Ready, Advisory Work, or not sure yet",
+  "Production Ready, GTM Support, or not sure yet",
   "Any upcoming milestone driving timing (launch, event, partner push, funding, board meeting, enterprise sales motion)",
 ];
 
@@ -75,7 +75,7 @@ const FIT_FOR = [
 const CONTACT_FAQS = [
   {
     q: "What is the best way to contact Bob Hart?",
-    a: "The best way to contact Bob Hart is to schedule a 30-minute fit call or email bob@successfulbob.com. If you already know you want to discuss Production Ready or Advisory Work, a fit call is usually the easiest next step. If you want to send context first, email is a good option.",
+    a: "The best way to contact Bob Hart is to schedule a 30-minute fit call or email bob@successfulbob.com. If you already know you want to discuss Production Ready or GTM Support, a fit call is usually the easiest next step. If you want to send context first, email is a good option.",
   },
   {
     q: "How quickly will Bob respond?",
@@ -83,7 +83,7 @@ const CONTACT_FAQS = [
   },
   {
     q: "Should I schedule a call if I am not sure what I need?",
-    a: "Yes. You do not need to diagnose the problem perfectly before reaching out. If your product is strong but the market story, demo, partner message, or executive value is not landing consistently, a short fit call can help clarify whether Production Ready, Advisory Work, or a different next step makes sense.",
+    a: "Yes. You do not need to diagnose the problem perfectly before reaching out. If your product is strong but the market story, demo, partner message, or executive value is not landing consistently, a short fit call can help clarify whether Production Ready, GTM Support, or a different next step makes sense.",
   },
   {
     q: "Can I invite Bob to a podcast, webinar, interview, or event?",
@@ -97,7 +97,7 @@ const CONTACT_FAQS = [
 
 const REASONS = [
   "Production Ready",
-  "Advisory Work",
+  "GTM Support",
   "Speaking / podcast / interview",
   "Partnership or referral",
   "Not sure yet",
@@ -312,7 +312,7 @@ export default function ContactPage() {
             transition={{ duration: 0.65, delay: 0.22, ease: [0.22, 1, 0.36, 1] }}
             className="text-[16px] md:text-[18px] text-white/65 max-w-2xl mx-auto leading-[1.7] mb-9"
           >
-            If your product is strong but the story is not yet easy for the market, field, partners, or executives to carry, I'm happy to talk. The easiest next step is a 30-minute fit call to figure out whether Production Ready, Advisory Work, or a different next step makes sense.
+            If your product is strong but the story is not yet easy for the market, field, partners, or executives to carry, I'm happy to talk. The easiest next step is a 30-minute fit call to figure out whether Production Ready, GTM Support, or a different next step makes sense.
           </motion.p>
 
           <motion.div
@@ -369,7 +369,7 @@ export default function ContactPage() {
                   </svg>
                 </div>
                 <h3 className="text-[18px] font-bold text-[#111827] mb-2">Schedule a 30-Minute Fit Call</h3>
-                <p className="text-[#526078] text-[14px] leading-[1.65] mb-6">Best if you want to talk through whether Production Ready, Advisory Work, or another next step makes sense.</p>
+                <p className="text-[#526078] text-[14px] leading-[1.65] mb-6">Best if you want to talk through whether Production Ready, GTM Support, or another next step makes sense.</p>
                 <div className="mt-auto">
                   <a
                     href="#"
@@ -454,7 +454,7 @@ export default function ContactPage() {
               What helps me give you a useful answer?
             </h2>
             <div className="space-y-4 text-[#526078] text-base md:text-[17px] leading-[1.8]">
-              <p>If you're reaching out about Production Ready or Advisory Work, a few details help. You don't need a perfect brief, just enough context so I can understand what you're trying to solve.</p>
+              <p>If you're reaching out about Production Ready or GTM Support, a few details help. You don't need a perfect brief, just enough context so I can understand what you're trying to solve.</p>
               <p>If the main issue is hard to describe, that's fine. Just say what feels stuck.</p>
             </div>
           </AnimateIn>

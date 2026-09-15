@@ -1,0 +1,62 @@
+{
+  "hero": {
+    "eyebrow": "GTM help for technical companies",
+    "title": "Your product probably isn’t the problem. Your GTM might be. I can help you fix it.",
+    "paragraphs": [
+      "If something feels stuck across messaging, sales, demos, partners, positioning, or field execution, I help founders and GTM leaders figure out what’s actually broken and what to do next."
+    ],
+    "primary": "Bring me your concern",
+    "secondary": "See how I can help"
+  },
+  "problem": {
+    "title": "Something is clearly off. The hard part is figuring out what.",
+    "paragraphs": [
+      "Sales says the leads are weak. Marketing thinks the story is clear. Partners aren’t producing. Demos are accurate but not moving decisions. The founder keeps getting pulled back into deals.",
+      "Any one of those could be the problem. Or they could all be symptoms of something upstream.",
+      "Sometimes the issue is execution. Sometimes it’s positioning, qualification, enablement, or the sales motion itself. And sometimes the product is strong, but somewhere between what it actually does and what the market hears, there’s a translation gap.",
+      "That’s why GTM problems are so hard to diagnose from inside one function. Each team sees its own slice.",
+      "I help companies figure out where to improve so they can spend their time and money fixing the right things, not chasing symptoms."
+    ]
+  },
+  "waysTitle": "Get the level of GTM support that fits the problem.",
+  "ways": [
+    {
+      "title": "GTM Coach",
+      "body": "Your team keeps ownership. Successfulbob gives you a senior GTM counsel to help work through what’s stuck, pressure-test decisions, and figure out the next move.",
+      "price": "Starting at $2,500/month",
+      "href": "/advisory-work#gtm-coach"
+    },
+    {
+      "title": "GTM Partner",
+      "body": "For teams that need more than advice. Successfulbob takes on a defined GTM problem or workstream alongside your team and helps move it forward.",
+      "price": "Starting at $5,000/month",
+      "href": "/advisory-work#gtm-partner"
+    },
+    {
+      "title": "Fractional GTM Leadership",
+      "body": "For broader GTM needs that require ongoing senior leadership across multiple priorities, teams, or initiatives.",
+      "price": "Starting at $20,000/month",
+      "href": "/advisory-work#fractional-gtm-leadership"
+    }
+  ],
+  "flagship": {
+    "title": "Need to fix the whole GTM system?",
+    "body": "Production Ready is designed for broader diagnosis and transformation."
+  },
+  "about": {
+    "title": "I’ve been in the rooms where this breaks.",
+    "paragraphs": [
+      "I’ve spent more than 20 years working across technical sales, product marketing, partner strategy, field leadership, and executive communication.",
+      "That means I’ve seen the same GTM problems from several angles: the product team, the field, partners, customers, and the executives trying to make the whole thing work.",
+      "Successfulbob exists to help companies sort through that mess, find the real issue, and make the next decision with more clarity."
+    ]
+  },
+  "close": {
+    "title": "Not sure what’s stuck? Bring me the concern.",
+    "paragraphs": [
+      "You don’t need to diagnose the problem before reaching out. If something in your GTM motion isn’t working, we can talk through what you’re seeing and figure out the right next step."
+    ],
+    "primary": "Bring Me Your Concern",
+    "secondary": "Email Bob Directly"
+  }
+}
