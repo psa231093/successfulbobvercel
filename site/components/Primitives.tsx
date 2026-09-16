@@ -55,6 +55,8 @@ export function GradientButton({
       {href ? (
         external ? (
           <a href={href} target="_blank" rel="noopener noreferrer" onClick={onClick} className={cls}>{inner}</a>
+        ) : href.startsWith("#") ? (
+          <a href={href} onClick={onClick} className={cls}>{inner}</a>
         ) : (
           <Link href={href} onClick={onClick} className={cls}>{inner}</Link>
         )
@@ -81,6 +83,8 @@ export function GhostButton({ href, children, external, onClick }: { href?: stri
       {href ? (
         external ? (
           <a href={href} target="_blank" rel="noopener noreferrer" onClick={onClick} className={cls}>{children}</a>
+        ) : href.startsWith("#") ? (
+          <a href={href} onClick={onClick} className={cls}>{children}</a>
         ) : (
           <Link href={href} onClick={onClick} className={cls}>{children}</Link>
         )
@@ -195,16 +199,5 @@ export function PointerGlow({
         background: `radial-gradient(${size}px circle at var(--mx, 50%) var(--my, 50%), rgba(${color}, ${strength}), transparent 65%)`,
       }}
     />
-  );
-}
-
-/* -- Decorative section numeral (top-right watermark) -- */
-
-export function Numeral({ n, dark }: { n: string; dark?: boolean }) {
-  return (
-    <div className="absolute top-0 right-0 text-[160px] font-bold leading-none pointer-events-none select-none"
-      style={{ color: dark ? "rgba(255,255,255,0.03)" : "rgba(63,107,255,0.05)", lineHeight: 0.9 }}>
-      {n}
-    </div>
   );
 }

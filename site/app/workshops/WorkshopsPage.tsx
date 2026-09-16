@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { SectionLabel, AccentBar, Numeral, PointerGlow, GhostButtonInline, OutlineButton } from "@/components/Primitives";
+import { SectionLabel, AccentBar, PointerGlow, GhostButtonInline, OutlineButton } from "@/components/Primitives";
 import { AnimateIn, Stagger, StaggerItem } from "@/components/AnimateIn";
 import FAQAccordion from "@/components/FAQAccordion";
 import RichText from "@/components/RichText";
@@ -225,7 +225,6 @@ export default function WorkshopsPage({ workshop, view }: { workshop: Workshop; 
       {(w.problemHeadline || hasBlocks(w.problemBody)) && (
         <Section tone="soft">
           <div className="relative max-w-3xl mx-auto px-6">
-            <Numeral n="01" />
             <Heading eyebrow={w.problemEyebrow}>{w.problemHeadline}</Heading>
             <AnimateIn delay={0.05}>
               <RichText value={w.problemBody} />
@@ -251,7 +250,6 @@ export default function WorkshopsPage({ workshop, view }: { workshop: Workshop; 
       {w.whatYouDoItems?.length || w.outcomes?.length ? (
         <Section tone="midnight">
           <div className="relative max-w-4xl mx-auto px-6">
-            <Numeral n="02" />
             <Heading eyebrow={w.whatYouDoEyebrow} dark>
               {w.whatYouDoHeadline ?? "What you will do"}
             </Heading>
@@ -324,7 +322,6 @@ export default function WorkshopsPage({ workshop, view }: { workshop: Workshop; 
       {(w.audienceRoles?.length || w.audienceIntro) && (
         <Section tone="soft">
           <div className="relative max-w-4xl mx-auto px-6">
-            <Numeral n="03" />
             <Heading eyebrow={w.audienceEyebrow}>{w.audienceHeadline ?? "Who it is for"}</Heading>
             {w.audienceIntro && (
               <AnimateIn delay={0.05}>
@@ -491,7 +488,6 @@ export default function WorkshopsPage({ workshop, view }: { workshop: Workshop; 
       {(w.seatRules?.length || w.refundPolicy) && (
         <Section tone="soft">
           <div className="relative max-w-4xl mx-auto px-6">
-            <Numeral n="04" />
             <Heading eyebrow={w.pricingEyebrow}>{w.pricingHeadline ?? "Pricing and seats"}</Heading>
 
             <div className="grid md:grid-cols-[0.9fr_1.1fr] gap-6 items-start mt-10">

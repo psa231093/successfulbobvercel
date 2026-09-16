@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { AnimateIn } from "@/components/AnimateIn";
+import styles from "./MarketingDesign.module.css";
 import {
   FitCallButton,
   FitCallGhostButton,
@@ -31,30 +32,48 @@ export function MarketingSection({
   children,
   tone = "white",
   id,
+  aside,
 }: {
   eyebrow: string;
   title: string;
   children: ReactNode;
   tone?: "white" | "soft" | "dark";
   id?: string;
+  aside?: ReactNode;
 }) {
   return (
     <section
       id={id}
-      className={`py-16 md:py-24 scroll-mt-24 ${tone === "dark" ? "bg-[#061126] text-white" : tone === "soft" ? "bg-[#f5f7fb]" : "bg-white"}`}
+      className={`${styles.section} py-16 md:py-24 scroll-mt-24 ${tone === "dark" ? "bg-[#0b1433] text-white" : tone === "soft" ? "bg-[#f5f7fb]" : "bg-white"}`}
     >
-      <div className="max-w-6xl mx-auto px-6">
-        <AnimateIn className="max-w-3xl mb-10">
-          <p
-            className={`text-[11px] font-semibold tracking-[0.14em] uppercase mb-3 ${tone === "dark" ? "text-[#9db4ff]" : "text-[#3f6bff]"}`}
-          >
-            {eyebrow}
-          </p>
-          <h2 className="text-3xl md:text-[42px] font-bold leading-[1.15] tracking-[-0.02em]">
-            {title}
-          </h2>
-        </AnimateIn>
-        {children}
+      {tone === "dark" && (
+        <>
+          <div aria-hidden="true" className={styles.glow} />
+          <div aria-hidden="true" className={styles.texture} />
+          <div aria-hidden="true" className={styles.hairline} />
+        </>
+      )}
+      <div
+        className={`${styles.sectionBody} max-w-6xl mx-auto px-6 ${aside ? "grid lg:grid-cols-2 gap-10 lg:gap-16 items-start" : ""}`}
+      >
+        <div>
+          <AnimateIn className="max-w-3xl mb-10">
+            <p
+              className={`text-[11px] font-semibold tracking-[0.14em] uppercase mb-3 ${tone === "dark" ? "text-[#9db4ff]" : "text-[#3f6bff]"}`}
+            >
+              {eyebrow}
+            </p>
+            <div
+              aria-hidden="true"
+              className="w-10 h-[3px] rounded-full bg-gradient-to-r from-[#3f6bff] to-[#8b5cf6] mb-5"
+            />
+            <h2 className="text-3xl md:text-[42px] font-bold leading-[1.15] tracking-[-0.02em]">
+              {title}
+            </h2>
+          </AnimateIn>
+          {children}
+        </div>
+        {aside}
       </div>
     </section>
   );
@@ -83,6 +102,7 @@ export function MarketingHero({
 }) {
   return (
     <section className="relative bg-[#061126] text-white py-20 md:py-28 overflow-hidden">
+      <div aria-hidden="true" className={styles.texture} />
       <div
         aria-hidden="true"
         className="absolute inset-0 pointer-events-none"
@@ -92,7 +112,7 @@ export function MarketingHero({
         }}
       />
       <div
-        className={`relative max-w-6xl mx-auto px-6 ${visual ? "grid lg:grid-cols-[1.25fr_0.75fr] gap-12 lg:gap-16 items-center" : ""}`}
+        className={`relative max-w-6xl mx-auto px-6 ${visual ? "grid grid-cols-1 lg:grid-cols-[1.25fr_0.75fr] gap-12 lg:gap-16 items-center" : ""}`}
       >
         <AnimateIn className="max-w-3xl">
           <p className="text-[11px] font-semibold tracking-[0.14em] uppercase text-[#a4b9ff] mb-5">
@@ -138,11 +158,20 @@ export function MarketingClose({
   secondary?: string;
 }) {
   return (
-    <section className="bg-[#061126] text-white py-16 md:py-24">
-      <div className="max-w-3xl mx-auto px-6 text-center">
+    <section
+      className={`${styles.section} bg-[#061126] text-white py-16 md:py-24`}
+    >
+      <div aria-hidden="true" className={styles.glow} />
+      <div aria-hidden="true" className={styles.texture} />
+      <div aria-hidden="true" className={styles.hairline} />
+      <div className="relative max-w-3xl mx-auto px-6 text-center">
         <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#9db4ff] mb-4">
           Get started
         </p>
+        <div
+          aria-hidden="true"
+          className="w-10 h-[3px] mx-auto rounded-full bg-gradient-to-r from-[#3f6bff] to-[#8b5cf6] mb-5"
+        />
         <h2 className="text-3xl md:text-[44px] font-bold leading-[1.15] tracking-tight mb-6">
           {title}
         </h2>
@@ -158,13 +187,32 @@ export function MarketingClose({
   );
 }
 
-export function CheckList({ items }: { items: string[] }) {
+export function CheckList({
+  items,
+  dark = false,
+}: {
+  items: string[];
+  dark?: boolean;
+}) {
   return (
-    <ul className="space-y-5">
+    <ul>
       {items.map((item) => (
-        <li key={item} className="flex gap-3 text-[#526078] leading-relaxed">
-          <span aria-hidden="true" className="text-[#3f6bff] font-bold">
-            ✓
+        <li
+          key={item}
+          className={`${styles.check} ${dark ? "text-white/75" : "text-[#526078]"} text-[15px] leading-relaxed`}
+        >
+          <span aria-hidden="true" className={styles.checkIcon}>
+            <svg
+              className="w-3 h-3"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="m5 12 4 4 10-10" />
+            </svg>
           </span>
           <span>{item}</span>
         </li>

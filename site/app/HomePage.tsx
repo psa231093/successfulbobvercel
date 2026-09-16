@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { HomeOfferPaths } from "@/components/MarketingDesign";
 import copy from "@/content/home.json";
 import {
   Copy,
@@ -175,12 +176,12 @@ function GhostButton({
       className="w-full sm:w-auto"
       style={{ borderRadius: 8 }}
     >
-      <Link
+      <a
         href={href}
         className="flex items-center justify-center w-full px-7 py-3.5 rounded-lg text-[15px] font-semibold text-white border border-white/20 hover:border-white/40 hover:bg-white/[0.06] transition-all duration-200"
       >
         {children}
-      </Link>
+      </a>
     </motion.div>
   );
 }
@@ -288,9 +289,9 @@ export default function HomePage({
       </section>
 
       <MarketingSection eyebrow="The Problem" title={copy.problem.title}>
-        <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+        <div className="grid xl:grid-cols-2 gap-10 md:gap-16 items-center">
           <Copy paragraphs={copy.problem.paragraphs} />
-          <AnimateIn className="hidden md:block">
+          <AnimateIn className="hidden md:block w-full max-w-[560px] mx-auto">
             <TranslationGapVisual />
           </AnimateIn>
         </div>
@@ -301,52 +302,21 @@ export default function HomePage({
         title={copy.waysTitle}
         tone="soft"
       >
-        <div className="grid md:grid-cols-3 gap-6">
-          {copy.ways.map((item) => (
-            <Link
-              key={item.title}
-              href={item.href}
-              className="group rounded-2xl border border-[#dce2ed] bg-white p-7 flex flex-col hover:border-[#3f6bff] focus-visible:outline-2 focus-visible:outline-[#3f6bff]"
-            >
-              <h3 className="text-xl font-bold mb-4 group-hover:text-[#3f6bff]">
-                {item.title}
-              </h3>
-              <p className="text-[#526078] leading-relaxed mb-7">{item.body}</p>
-              <p className="mt-auto font-semibold text-[#3f6bff]">
-                {item.price}
-                <span aria-hidden="true" className="ml-2">
-                  ↗
-                </span>
-              </p>
-            </Link>
-          ))}
-        </div>
-        <Link
-          href="/production-ready"
-          className="mt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#061126] text-white rounded-2xl p-7 hover:bg-[#0B1734]"
-        >
-          <div>
-            <h3 className="text-xl font-semibold mb-2">
-              {copy.flagship.title}
-            </h3>
-            <p className="text-white/70">{copy.flagship.body}</p>
-          </div>
-          <span aria-hidden="true" className="text-2xl">
-            ↗
-          </span>
-        </Link>
+        <HomeOfferPaths items={copy.ways} flagship={copy.flagship} />
       </MarketingSection>
       <TestimonialsCarousel items={testimonials} />
       <MarketingSection eyebrow="About Bob" title={copy.about.title}>
         <div className="grid md:grid-cols-[0.65fr_1.35fr] gap-10 md:gap-16 items-center">
-          <Image
-            src="/bob-headshot-portrait.webp"
-            alt="Bob Hart"
-            width={480}
-            height={600}
-            sizes="(max-width: 767px) 280px, 360px"
-            className="rounded-2xl max-w-[280px] md:max-w-full w-full h-auto mx-auto"
-          />
+          <div className="max-w-[280px] md:max-w-full mx-auto">
+            <Image
+              src="/bob-headshot-portrait.webp"
+              alt="Bob Hart"
+              width={480}
+              height={600}
+              sizes="(max-width: 767px) 280px, 360px"
+              className="rounded-2xl max-w-[280px] md:max-w-full w-full h-auto mx-auto"
+            />
+          </div>
           <div>
             <Copy paragraphs={copy.about.paragraphs} />
             <Link
